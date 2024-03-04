@@ -251,15 +251,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                           <span class="close">&times;</span><br>
                                           <h2>Select Payment Method</h2><br>
                                           <form id="paymentForm">
-                                            
-                                            <input type="radio" id="cod" name="paymentMethod" value="cod">
-                                            <label for="cod">Cash on Delivery</label><br><br>
-
+                                            <% if(order.totalPrice >1000 ){ %>
+                                                <p class="text-danger">
+                                                    COD not available for orders over ₹1000
+                                                </p>
+                                                <% }else{ %>
+                                                    <input type="radio" id="cod" name="paymentMethod" value="cod">
+                                                    <label for="cod">Cash on Delivery</label><br><br>
+                                                    <% } %>
+                                          
                                             <input type="radio" id="online" name="paymentMethod" value="online">
                                             <label for="online">Online Payment</label><br><br>
                                            
-                                            <input type="radio" id="wallet" name="paymentMethod" value="wallet">
-                                            <label for="wallet">Wallet</label><br><br>
+                                            <!-- <input type="radio" id="wallet" name="paymentMethod" value="wallet">
+                                            <label for="wallet">Wallet</label><br><br> -->
                                             <button class="plc" type="button" onclick="confirmPayment('<%= order._id %>')">Confirm Payment</button>
                                           </form>
                                         </div>

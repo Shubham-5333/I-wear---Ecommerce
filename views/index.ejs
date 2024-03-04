@@ -1,0 +1,444 @@
+<%-include('header')-%>
+	<!-- header -->
+	<header>
+		<div class="row">
+			<div class="col-md-3 top-info text-left mt-lg-4">
+
+			</div>
+			<div class="col-md-6 logo-w3layouts text-center">
+				<h1 class="logo-w3layouts">
+					<a class="navbar-brand" href="/">
+						I <i class="ri-eye-fill"></i> WEAR </a>
+				</h1>
+			</div>
+
+			<div class="col-md-3 top-info-cart text-right mt-lg-4">
+				<ul class="cart-inner-info">
+					<li>
+						<a href="/login"><i class="ri-account-circle-fill" style="color: black;"></i></a>
+					</li>
+					<li>
+						<a href="/wishlist"><i class="ri-heart-fill" style="color: black;"></i></a>
+					</li>
+					<li>
+						<a href="/cart"><i class="ri-shopping-cart-line" style="color: black;"></i></a>
+					</li>
+				</ul>
+				<!-- -->
+				<!-- <div class=" text-left"> -->
+				<!-- <button type="button" class="overlay-close1"> -->
+				<!-- <i class="fa fa-times" aria-hidden="true"></i> -->
+				<!-- </button> -->
+				<!-- <div class="wrap">
+							<h5 class="text-center mb-4">Login Now</h5>
+							<div class="login p-5 bg-dark mx-auto mw-100">
+								<form action="#" method="post">
+									<div class="form-group">
+										<label class="mb-2">Email address</label>
+										<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">
+									</div>
+									<div class="form-group">
+										<label class="mb-2">Password</label>
+										<input type="password" class="form-control" id="exampleInputPassword1" placeholder="" required="">
+									</div>
+									<button type="submit" class="btn btn-primary submit mb-4">Sign In</button><br><br>
+									<div class="form-check mb-2">
+										<label for="exampleCheck1">Don't have an account? <a class="" href="SignUp.html">Sign Up</a></label>
+									</div>
+
+								</form>
+							</div>
+						</div> -->
+				<!-- </div> -->
+				<!-- -->
+			</div>
+		</div>
+		<label class="top-log mx-auto"></label>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light top-header mb-2">
+
+			<button class="navbar-toggler mx-auto" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon">
+
+				</span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav nav-mega mx-auto">
+					<li class="nav-item active">
+						<a class="nav-link ml-lg-0" href="/">Home
+							<span class="sr-only">(current)</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/allProducts">Shop Now</a>
+					</li>
+					<li>
+						<!-- Example split danger button -->
+						<div class="btn-group">
+
+							<button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								<span class="visually-hidden">Toggle Dropdown</span>CATEGORY
+							</button>
+							<ul class="dropdown-menu">
+								<% for(let i=0;i<category.length;i++) { %>
+									<li><a class="dropdown-item" href="/categoryList?id=<%=category[i].name  %>">
+											<%= category[i].name %>
+										</a>
+									</li>
+									<% } %>
+							</ul>
+						</div>
+					</li> 
+					<div class="p-3"></div> 
+					<li>
+						<form action="/search" method="GET"> 
+							<div class="search">
+								<div class="search-box">
+								  <div class="search-field">
+									<input type="text" placeholder="Search..." name="searchQuery"  class="input" >
+									<div class="search-box-icon">
+									  <button type="submit" class="btn-icon-content">
+										<i class="search-icon">
+										  <svg xmlns="://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" fill="#fff"></path></svg>
+										</i>
+									  </button>
+									</div>
+								  </div>
+								</div>
+							  </div>
+						</form>
+						
+					</li>
+				</ul>
+
+			</div>
+		</nav>
+	</header>
+	<!-- //header -->
+	<!-- banner -->
+	<div class="banner">
+		<div>
+			<img src="images/image-1705318558269.jpg" class="img-fluid" alt="Banner Image">
+		</div>
+	</div>
+	<!--//banner-sec-->
+		<section class="banner	-bottom-wthreelayouts lg-5">
+			<div class="container-fluid"><br>
+				<div class="inner-sec-shop px-lg-4 px-3">
+					<h3>New arrivals for you </h3><br>
+					<!--/slide-->
+					<!-- <div class="slider-img mid-sec">
+					<!--//banner-sec-->
+					<div class="mid-slider">
+						<div class="owl-carousel owl-theme row">
+							<% for(let j=0;j<5;j++) {%>
+							<div class="item">
+								<div class="gd-box-info text-center">
+									<div class="product-men women_two bot-gd">
+										<div class="product-googles-info slide-img googles">
+											<div class="men-pro-item">
+												<div class="men-thumb-item" data-product-id="<%= product[j]._id %>">
+													<img src="<%=product[j].images[0]  %>" class="img-fluid" alt="">
+													<div class="men-cart-pro">
+														<div class="inner-men-cart-pro">
+															<a href="/ListSingleProduct?id=<%=product[j]._id%>" class="link-product-add-cart">Quick View</a>
+														</div>
+													</div>
+													<% if(data2 && data2.products && data2.products.includes(product[j]._id)) { %>
+														<span class="product-new-top">
+															<a class="wishlist-icon-delete">
+																<i class="ri-heart-fill" style="color: #ff0000;"></i>
+															</a>
+														</span>
+													<% } else { %>
+														<span class="product-new-top">
+															<a class="wishlist-icon-add">
+																<i class="ri-heart-line" style="color: #000000;"></i>
+															</a>
+														</span>
+													<% } %>
+												</div>
+												<div class="item-info-product">
+
+													<div class="info-product-price">
+														<div class="grid_meta">
+															<div class="product_price">
+																<h4>
+																	<a href="/ListSingleProduct?id=<%=product[j]._id%>"><%=product[j].Pname %></a>
+																</h4>
+																<div class="grid-price mt-2">
+																	<span class="money ">₹
+																		<%=product[j].price %>.00</span>
+																</div>
+															</div>
+														
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+		
+							<% } %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			
+	</div>
+	</div>
+	</section>
+	<!-- about -->
+	<!--footer -->
+	<footer class="footer footer-fixed">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h4 style="color: #00ffbb;">Quick Links</h4>
+					<ul class="list-unstyled">
+						<li><a style="color: #f4f4f4;" href="#">Home</a></li>
+						<li><a style="color: #f4f4f4;" href="#">About</a></li>
+						<li><a style="color: #f4f4f4;" href="#">Shop</a></li>
+						<li><a style="color: #f4f4f4;" href="#">Contact Us</a></li>
+					</ul>
+				</div>
+				<div class="col-md-6 text-right">
+					<h4>Follow Us</h4>
+					<a style="color: #ff00f7;" href="#"><i class="ri-instagram-line"></i></a>
+					<a style="color: #ffffff;" href="#"><i class="ri-twitter-x-line"></i></a>
+					<a style="color: #00b7ff;" href="#"><i class="ri-facebook-circle-fill"></i></a>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- //footer -->
+
+	<!--jQuery-->
+	<script src="js/jquery-2.2.3.min.js"></script>
+	<!-- newsletter modal -->
+	<!-- Modal -->
+	<!-- Modal -->
+	<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center p-5 mx-auto mw-100">
+					<h6>Join our newsletter and get</h6>
+					<h3>50% Off for your first Pair of Eye wear</h3>
+					<div class="login newsletter">
+						<form action="#" method="post">
+							<div class="form-group">
+								<label class="mb-2">Email address</label>
+								<input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="" required="">
+							</div>
+							<button type="submit" class="btn btn-primary submit mb-4">Get 50% Off</button>
+						</form>
+						<p class="text-center">
+							<a href="#">No thanks I want to pay full Price</a>
+						</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div> -->
+	<script>
+		$(document).ready(function () {
+			$("#myModal").modal();
+		});
+	</script>
+		<script src="js/jquery-2.2.3.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function () {
+				// Click event handler for add to wishlist icon
+				$('.wishlist-icon-add').click(function (e) {
+					e.preventDefault(); // Prevent default link behavior
+					var productId = $(this).closest('.men-thumb-item').data('product-id');
+	
+					// Make AJAX call to add product to wishlist
+					$.ajax({
+						url: '/wishlist/add', 
+						type: 'POST',
+						data: {
+							productId: productId
+						},
+						success: function (response) {
+							console.log('Product added to wishlist');
+							window.location.reload()
+						},
+						error: function (xhr, status, error) {
+							console.error('Error adding product to wishlist:', error);
+						}
+					});
+				});
+	
+				
+				$('.wishlist-icon-delete').click(function (e) {
+					e.preventDefault(); 
+					var productId = $(this).closest('.men-thumb-item').data('product-id');
+	
+					
+					$.ajax({
+						url: '/wishlist/remove', 
+						type: 'POST',
+						data: {
+							productId: productId 
+						},
+						success: function (response) {
+							console.log('Product removed from wishlist');
+							window.location.reload()
+							
+						},
+						error: function (xhr, status, error) {
+							console.error('Error removing product from wishlist:', error);
+							// Show error message
+						}
+					});
+				});
+			});
+		</script>
+	<!-- // modal -->
+
+	<!--search jQuery-->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<script src="js/classie-search.js"></script>
+	<script src="js/demo1-search.js"></script>
+	<!--//search jQuery-->
+	<!-- cart-js -->
+	<script src="js/minicart.js"></script>
+	<!-- <script>
+		googles.render();
+
+		googles.cart.on('googles_checkout', function (evt) {
+			var items, len, i;
+
+			if (this.subtotal() > 0) {
+				items = this.items();
+
+				for (i = 0, len = items.length; i < len; i++) {}
+			}
+		});
+	</script> -->
+	<!-- //cart-js -->
+	<script>
+		$(document).ready(function () {
+			$(".button-log a").click(function () {
+				$(".overlay-login").fadeToggle(200);
+				$(this).toggleClass('btn-open').toggleClass('btn-close');
+			});
+		});
+		$('.overlay-close1').on('click', function () {
+			$(".overlay-login").fadeToggle(200);
+			$(".button-log a").toggleClass('btn-open').toggleClass('btn-close');
+			open = false;
+		});
+	</script>
+	<!-- carousel -->
+	<!-- Count-down -->
+	<script src="js/simplyCountdown.js"></script>
+	<link href="css/simplyCountdown.css" rel='stylesheet' type='text/css' />
+	<script>
+		var d = new Date();
+		simplyCountdown('simply-countdown-custom', {
+			year: d.getFullYear(),
+			month: d.getMonth() + 2,
+			day: 25
+		});
+	</script>
+	<!--// Count-down -->
+	<script src="js/owl.carousel.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('.owl-carousel').owlCarousel({
+				loop: true,
+				margin: 10,
+				responsiveClass: true,
+				responsive: {
+					0: {
+						items: 1,
+						nav: true
+					},
+					600: {
+						items: 2,
+						nav: false
+					},
+					900: {
+						items: 3,
+						nav: false
+					},
+					1000: {
+						items: 4,
+						nav: true,
+						loop: false,
+						margin: 20
+					}
+				}
+			})
+		})
+	</script>
+
+	<!-- //end-smooth-scrolling -->
+
+
+	<!-- dropdown nav -->
+	<script>
+		$(document).ready(function () {
+			$(".dropdown").hover(
+				function () {
+					$('.dropdown-menu', this).stop(true, true).slideDown("fast");
+					$(this).toggleClass('open');
+				},
+				function () {
+					$('.dropdown-menu', this).stop(true, true).slideUp("fast");
+					$(this).toggleClass('open');
+				}
+			);
+		});
+	</script>
+	<!-- //dropdown nav -->
+	<script src="js/move-top.js"></script>
+	<script src="js/easing.js"></script>
+	<script>
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 900);
+			});
+		});
+	</script>
+	<!-- <script>
+        $(document).ready(function() {
+            /*
+            						var defaults = {
+            							  containerID: 'toTop', // fading element id
+            							containerHoverID: 'toTopHover', // fading element hover id
+            							scrollSpeed: 1200,
+            							easingType: 'linear' 
+            						 };
+            						*/
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script> -->
+	<!--// end-smoth-scrolling -->
+
+	<script src="js/bootstrap.js"></script>
+	<!-- js file -->
+	<%-include('footer')-%>

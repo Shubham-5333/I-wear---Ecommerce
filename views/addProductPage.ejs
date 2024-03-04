@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eCommerce Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.css"
+        integrity="sha512-hvNR0F/e2J7zPPfLC9auFe3/SE0yG4aJCOd/qxew74NN7eyiSKjr7xJJMu1Jy2wf7FXITpWS1E/RY8yzuXN7VA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"   />
+ 
+
+    <!-- <script src="js/addProduct.js"></script> -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        #sidebar {
+            background-color: #ffffff;
+            color: #fff;
+            padding-top: 20px;
+        }
+
+        #sidebar a {
+            padding: 10px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #000000;
+            display: block;
+            transition: 0.3s;
+        }
+
+        #sidebar a:hover {
+            color: #3c01fffe;
+        }
+
+
+        #sidebar .logout {
+            color: #fff;
+            background-color: #ff0000;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        #content {
+            padding: 20px;
+        }
+
+        .dashboard-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .statistic-box {
+            background-color: rgba(171, 194, 194, 0.141);
+            border: 1px solid #000000;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .statistic-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .statistic-value {
+            font-size: 24px;
+            color: #27ae60;
+        }
+
+        .statistic-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #3498db;
+        }
+        #imagePreview {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .image-container {
+            margin: 10px;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 150px;
+            max-height: 150px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 col-sm-12" id="sidebar">
+                <div class="sidebar-sticky text-dark">
+                    <h2 class="text-center">ADMIN</h2>
+                    <a href="/admin/home"><i class="fas fa-home"></i> Dashboard</a>
+                    <a href="/admin/productManagement"><i class="fas fa-box"></i> Product Management</a>
+                    <a href="/admin/getAllCategory"><i class="fas fa-list"></i> Category Management</a>
+                    <a href="/admin/userManagement"><i class="fas fa-users"></i> User Management</a>
+                    <a href="/admin/orderManagement"><i class="fas fa-shopping-cart"></i> Order Management</a>
+                    <a href="/admin/couponManagement"><i class="fas fa-percent"></i> Coupon Management</a>
+                    <form action="/admin/adminLogout" method="post">
+                        <button class="logout btn-danger"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                      </form>
+                </div>
+            </nav>
+
+            <main role="main" class="col-md-10 col-sm-12" id="content">
+                <div class="pt-3 text-center">
+                    <h1>I WEAR</h1>
+                </div>
+                <div class="dashboard-section " id="add-product-section">
+                    <h1 class="section-title "> Product</h1>
+                    <!-- Add Product Content -->
+                    <!-- Add Product Content -->
+                    <form action="/admin/uploadImage" method="post" enctype="multipart/form-data"
+                        onsubmit="return AddProductSubmit();">
+                        <p class="text-danger" id="allDetails"></p>
+                        <div class="form-group">
+                            <label for="productName">Product Name:</label>
+                            <input type="text" class="form-control" name="Pname" id="productName"
+                                placeholder="Product Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="productCategory">Category:</label>
+                            <select class="form-control" name="Pcategory" value="<%= category[0].value %>"
+                                id="productCategory">
+                                <% for(let i=0;i<category.length;i++) {%>
+                                    <option>
+                                        <%= category[i].name%>
+                                    </option>
+                                    <% } %>
+                            </select>
+                        </div>
+                        <!-- Inside the form -->
+
+
+                        <div class="form-group">
+                            <label for="productPrice">Price :</label>
+                            <input type="number" class="form-control" name="price" id="productPrice"
+                                placeholder="Price">
+                        </div>
+                        <div class="form-group">
+                            <label for="productUnits">Units:</label>
+                            <input type="number" class="form-control" name="units" id="productUnits"
+                                placeholder="Units">
+                        </div>
+                        <div class="form-group">
+                            <label for="productDescription">Product Description:</label>
+                            <textarea class="form-control" name="Pdescription" id="productDescription" rows="3"
+                                placeholder="Product Description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="productImage">Product Image:</label>
+                            <input type="file" name="image" class="form-control-file" id="productImage" multiple onchange="displayImages(event)">
+                        </div>
+                        
+                        <div id="imagePreview"></div>
+                        <button type="submit" class="btn btn-primary">Add Product</button>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        function AddProductSubmit() {
+            const Pname = document.getElementById('productName').value;
+            const Pprice = document.getElementById('productPrice').value;
+            const Punit = document.getElementById('productUnits').value;
+            const Pimage = document.getElementById('productImage').value;
+            const Pdescription = document.getElementById('productDescription').value;
+
+            const allDetailErr = document.getElementById('allDetails');
+            const AllDetailErr = [];
+
+            if (Pname.trim() === "") {
+                AllDetailErr.push("Product Name is required");
+            }
+            if (Pprice.trim() === "") {
+                AllDetailErr.push("Price is required");
+            }
+            if (Pprice.trim() !== "" && Pprice < 1) {
+                AllDetailErr.push("Please enter a value greater than one");
+            }
+            if (Punit.trim() === "") {
+                AllDetailErr.push("Units is required");
+            }
+            if (Pimage.trim() === "") {
+                AllDetailErr.push("Product Image is required");
+            }
+            if (Pdescription.trim() === "") {
+                AllDetailErr.push("Product Description is required");
+            }
+
+            allDetailErr.innerHTML = AllDetailErr.join(', ');
+
+            return AllDetailErr.length === 0;
+        }
+    </script>
+
+<script>
+    function displayImages(event) {
+        const preview = document.getElementById('imagePreview');
+        preview.innerHTML = ''; // Clear previous images
+
+        const files = event.target.files;
+
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+
+                const container = document.createElement('div');
+                container.classList.add('image-container');
+                container.appendChild(img);
+
+                preview.appendChild(container);
+            }
+
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
+
+
+
+
+
+ 
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

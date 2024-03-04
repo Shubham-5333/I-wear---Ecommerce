@@ -1,0 +1,596 @@
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>Goggles Ecommerce Category Bootstrap responsive Web Template | Checkout :: w3layouts</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="keywords" content="Goggles a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+	<link href="css/login_overlay.css" rel='stylesheet' type='text/css' />
+	<link href="css/style6.css" rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="css/shop.css" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="css/checkout.css">
+	<link href="css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
+	<link href="css/style.css" rel='stylesheet' type='text/css' />
+	<link href="css/fontawesome-all.css" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+	<link
+		href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+		rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+		<style>
+			.sett{
+				width: 100px;
+				height: 100px;
+			}
+			.footer-fixed {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333; /* Adjust the background color as needed */
+    color: #fff; /* Adjust the text color as needed */
+    padding: 20px; /* Adjust padding as needed */
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.button {
+  text-decoration: none;
+  line-height: 1;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 10px 10px 20px rgba(0,0,0,.05);
+  background-color: #fff;
+  color: #121212;
+  border: none;
+  cursor: pointer;
+  
+}
+
+.button-decor {
+  position: absolute;
+  inset: 0;
+  background-color: var(--clr);
+  transform: translateX(-100%);
+  transition: transform .3s;
+  z-index: 0;
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  
+}
+
+.button__icon {
+  width: 48px;
+  height: 40px;
+  background-color: var(--clr);
+  display: grid;
+  place-items: center;
+}
+
+.button__text {
+  display: inline-block;
+  transition: color .2s;
+  padding: 2px 1.5rem 2px;
+  padding-left: .75rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+.button:hover .button__text {
+  color: #fff;
+}
+
+.button:hover .button-decor {
+  transform: translate(0);
+}
+
+
+		</style>
+</head>
+
+<body>
+	<div class="wrapper">
+	<div class="banner-top container-fluid" id="home">
+		<!-- header -->
+		<header class="container-fluid bg-light">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-md-3 top-info text-left mt-lg-4">
+						<!-- Add your top info content here -->
+					</div>
+					<div class="col-md-6 logo-w3layouts text-center">
+						<h1 class="logo-w3layouts">
+							<a class="navbar-brand" href="/">
+								I <i class="ri-eye-fill"></i> WEAR </a>
+						</h1>
+					</div>
+					<div class="col-md-3 top-info-cart text-right mt-lg-4">
+						<!-- Your cart and login buttons here -->
+						<ul class="cart-inner-info">
+							<li>
+								<a href="/login"><i class="ri-account-circle-fill" style="color: black;"></i></a>
+							</li>
+							<li>
+								<a href="/wishlist"><i class="ri-heart-fill" style="color: black;"></i></a>
+							</li>
+							<li>
+								<a href="/cart"><i class="ri-shopping-cart-line" style="color: black;"></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</header>
+ 
+	</div>
+	<!--// header_top -->
+	<!--checkout-->
+	<section class="banner-bottom-wthreelayouts py-lg-5 py-3">
+		<div class="container">
+			<div class="inner-sec-shop px-lg-4 px-3">
+				<h3 class="tittle-w3layouts my-lg-4 mt-3">Shopping Cart </h3>
+				<div class="checkout-right">
+					<table class="timetable_sub">
+						<% if(data.length == 0){ %>
+							<h3 class="text-info">Your cart is empty !</h3>
+						<% }else{ %>
+						<thead>
+							<tr>
+								<th>Product</th>
+								<th>Quantity</th>
+								<th>Product Name</th>
+
+								<th>Price</th>
+								<th>Remove</th>
+							</tr>
+						</thead>
+						<% for(let i=0;i<data.length;i++){ %>
+							<tbody>
+
+								<tr class="rem1">
+									<td class="invert-image">
+										<a href="single.html">
+											<img  src="<%=data[i].productDetails.images[0]  %>" alt=" "
+												class="sett">
+										</a>
+									</td>
+									<td class="invert">
+										<div class="quantity">
+											<div class="quantity-select">
+												<div class="entry value-minus"
+													data-id="<%=data[i].productDetails._id  %>">&nbsp;</div>
+												<div class="entry value">
+													<span>
+														<%= data[i].products.quantity %>
+													</span>
+												</div>
+												<input type="hidden" value="<%=data[i].productDetails.units %>">
+												<div class="entry value-plus active"
+													data-id="<%=data[i].productDetails._id  %>">&nbsp;</div>
+											</div>
+										</div>
+									</td>
+									<td class="invert">
+										<%=data[i].productDetails.Pname %>
+									</td>
+
+									<td class="invert">₹<%=data[i].productDetails.price %>
+									</td>
+									<td>
+										<form action="/deleteCart?productId=<%=data[i].products._id %>" method="post">
+
+											<button type="submit"><i class="ri-close-circle-fill"></i></button>
+
+										</form>
+									</td>
+
+
+								</tr>
+							</tbody>
+							
+							<% } %>
+							<% } %>
+					</table>
+
+				</div>
+				<br>
+				<% if (data && data.length> 0) { %>
+					<div class="checkout-left row justify-content-end">
+						<div class="col-md-4 checkout-left-basket">
+							<h4>Summary</h4>
+							<ul>
+								<% let subtotal=data.reduce((total, item)=> {
+									return total + parseInt( item.productDetails.price * item.products.quantity);
+									}, 0); %>
+									<li>Sub Total
+										<i>-</i>
+										<span>₹<%= subtotal.toFixed(2) %></span>
+									</li>
+									<li>Shipping Charges
+										<i>-</i>
+										<span class="text-warning">Free</span>
+									</li>
+									<hr>
+									<li id="total">Total
+										<i>-</i>
+										<span>₹<%= subtotal.toFixed(2) %></span>
+									</li>
+							</ul>
+							
+							<% if(data.length >= 0) { %>
+								<a href="/checkout"><button class="button bttn mt-3" style="--clr: #00ad54;">
+									<span class="button-decor"></span>
+									<div class="button-content">
+										<div class="button__icon">
+											<svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" width="24">
+												<circle opacity="0.5" cx="25" cy="25" r="23" fill="url(#icon-payments-cat_svg__paint0_linear_1141_21101)"></circle>
+												<mask id="icon-payments-cat_svg__a" fill="#fff">
+													<path fill-rule="evenodd" clip-rule="evenodd" d="M34.42 15.93c.382-1.145-.706-2.234-1.851-1.852l-18.568 6.189c-1.186.395-1.362 2-.29 2.644l5.12 3.072a1.464 1.464 0 001.733-.167l5.394-4.854a1.464 1.464 0 011.958 2.177l-5.154 4.638a1.464 1.464 0 00-.276 1.841l3.101 5.17c.644 1.072 2.25.896 2.645-.29L34.42 15.93z">
+													</path>
+												</mask>
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M34.42 15.93c.382-1.145-.706-2.234-1.851-1.852l-18.568 6.189c-1.186.395-1.362 2-.29 2.644l5.12 3.072a1.464 1.464 0 001.733-.167l5.394-4.854a1.464 1.464 0 011.958 2.177l-5.154 4.638a1.464 1.464 0 00-.276 1.841l3.101 5.17c.644 1.072 2.25.896 2.645-.29L34.42 15.93z" fill="#fff"></path>
+												<path d="M25.958 20.962l-1.47-1.632 1.47 1.632zm2.067.109l-1.632 1.469 1.632-1.469zm-.109 2.068l-1.469-1.633 1.47 1.633zm-5.154 4.638l-1.469-1.632 1.469 1.632zm-.276 1.841l-1.883 1.13 1.883-1.13zM34.42 15.93l-2.084-.695 2.084.695zm-19.725 6.42l18.568-6.189-1.39-4.167-18.567 6.19 1.389 4.166zm5.265 1.75l-5.12-3.072-2.26 3.766 5.12 3.072 2.26-3.766zm2.072 3.348l5.394-4.854-2.938-3.264-5.394 4.854 2.938 3.264zm5.394-4.854a.732.732 0 01-1.034-.054l3.265-2.938a3.66 3.66 0 00-5.17-.272l2.939 3.265zm-1.034-.054a.732.732 0 01.054-1.034l2.938 3.265a3.66 3.66 0 00.273-5.169l-3.265 2.938zm.054-1.034l-5.154 4.639 2.938 3.264 5.154-4.638-2.938-3.265zm1.023 12.152l-3.101-5.17-3.766 2.26 3.101 5.17 3.766-2.26zm4.867-18.423l-6.189 18.568 4.167 1.389 6.19-18.568-4.168-1.389zm-8.633 20.682c1.61 2.682 5.622 2.241 6.611-.725l-4.167-1.39a.732.732 0 011.322-.144l-3.766 2.26zm-6.003-8.05a3.66 3.66 0 004.332-.419l-2.938-3.264a.732.732 0 01.866-.084l-2.26 3.766zm3.592-1.722a3.66 3.66 0 00-.69 4.603l3.766-2.26c.18.301.122.687-.138.921l-2.938-3.264zm11.97-9.984a.732.732 0 01-.925-.926l4.166 1.389c.954-2.861-1.768-5.583-4.63-4.63l1.39 4.167zm-19.956 2.022c-2.967.99-3.407 5.003-.726 6.611l2.26-3.766a.732.732 0 01-.145 1.322l-1.39-4.167z" fill="#fff" mask="url(#icon-payments-cat_svg__a)"></path>
+												<defs>
+													<linearGradient id="icon-payments-cat_svg__paint0_linear_1141_21101" x1="25" y1="2" x2="25" y2="48" gradientUnits="userSpaceOnUse">
+														<stop stop-color="#fff" stop-opacity="0.71"></stop>
+														<stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+													</linearGradient>
+												</defs>
+											</svg>
+										</div>
+										<span class="button__text">Proceed to Buy</span>
+									</div>
+								</button></a>
+							<%} else{ %>
+								<p class="mt-5 text-center">No items in the cart.</p>
+								<%}%>
+						</div>
+					</div>
+					<% } %>
+			</div>
+		</div>
+	</section>
+	</div>
+	<!--//checkout-->
+	<!--footer -->
+    <footer class="footer footer-fixed">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 style="color: #00ffbb;">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a style="color: #f4f4f4;" href="#">Home</a></li>
+                        <li><a style="color: #f4f4f4;" href="#">About</a></li>
+                        <li><a style="color: #f4f4f4;" href="#">Shop</a></li>
+                        <li><a style="color: #f4f4f4;" href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 text-right">
+                    <h4>Follow Us</h4>
+                    <a style="color: #ff00f7;" href="#"><i class="ri-instagram-line"></i></a>
+                    <a style="color: #ffffff;" href="#"><i class="ri-twitter-x-line"></i></a>
+                    <a style="color: #00b7ff;" href="#"><i class="ri-facebook-circle-fill"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+	<!-- //footer -->
+	<!--jQuery-->
+	<script src="js/jquery-2.2.3.min.js"></script>
+	<script>
+		// Calculate and update the Total dynamically
+		document.addEventListener('DOMContentLoaded', function () {
+			let totalElement = document.getElementById('total');
+			let totalValue = subtotal; // Assuming subtotal is already calculated
+
+			// Update the Total value in the DOM
+			totalElement.querySelector('span').textContent = '₹' + totalValue.toFixed(2);
+		});
+	</script>
+	<!-- newsletter modal -->
+	<!--search jQuery-->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<script src="js/classie-search.js"></script>
+	<script src="js/demo1-search.js"></script>
+	<!-- Include jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+	<!-- Add this script to handle quantity increment/decrement -->
+	<script>
+		// $(document).ready(function () {
+		// 	$('.value-plus, .value-minus').on('click', function () {
+		// 		var row = $(this).closest('tr');
+		// 		var productId = $(this).attr('data-id')
+		// 		var divUpd = $(this).parent().find('.value')
+		// 		console.log($(this).parent().find('.value').text())
+		// 		let newVal = parseInt(divUpd.text(), 10-1) ;
+				
+		// 		// console.log("kjhhk", row);
+		// 		// var currentQuantity = parseInt(row.find('span').text());
+		// 		// console.log('jdsjk',row.find('span'))
+		// 		// if ($(this).hasClass('value-plus')) {
+		// 		// 	currentQuantity += 1;
+		// 		// } else if ($(this).hasClass('value-minus') ) {
+		// 		// 	currentQuantity -= 1;
+		// 		// }
+		// 		// quantityUpdate =currentQuantity
+		// 		// Update the quantity in the UI
+		// 		// row.find('.quantity-select .value span').text(currentQuantity);
+				
+		// 		// }
+		// 		console.log('lll',newVal);
+		// 		// Make an AJAX request to update the quantity in the database
+		// 		if (newVal >1) {
+		// 			console.log('ajz called');
+		// 			// cartQuantity(productId, newVal)
+		// 		}
+		// 	});
+		// });
+		
+	</script>
+
+	<!--//search jQuery-->
+	<!-- cart-js -->
+	<script src="js/minicart.js"></script>
+	<script>
+		googles.render();
+
+		googles.cart.on('googles_checkout', function (evt) {
+			var items, len, i;
+
+			if (this.subtotal() > 0) {
+				items = this.items();
+
+				for (i = 0, len = items.length; i < len; i++) { }
+			}
+		});
+	</script>
+	<!-- //cart-js -->
+	<script>
+		$(document).ready(function () {
+			$(".button-log a").click(function () {
+				$(".overlay-login").fadeToggle(200);
+				$(this).toggleClass('btn-open').toggleClass('btn-close');
+			});
+		});
+		$('.overlay-close1').on('click', function () {
+			$(".overlay-login").fadeToggle(200);
+			$(".button-log a").toggleClass('btn-open').toggleClass('btn-close');
+			open = false;
+		});
+	</script>
+	<!-- carousel -->
+	<!-- easy-responsive-tabs -->
+	<script src="js/easy-responsive-tabs.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('#horizontalTab').easyResponsiveTabs({
+				type: 'default', //Types: default, vertical, accordion           
+				width: 'auto', //auto or any width like 600px
+				fit: true, // 100% fit in a container
+				closed: 'accordion', // Start closed if in accordion view
+				activate: function (event) { // Callback function if tab is switched
+					var $tab = $(this);
+					var $info = $('#tabInfo');
+					var $name = $('span', $info);
+					$name.text($tab.text());
+					$info.show();
+				}
+			});
+			$('#verticalTab').easyResponsiveTabs({
+				type: 'vertical',
+				width: 'auto',
+				fit: true
+			});
+		});
+	</script>
+	<!--quantity-->
+	<script>
+		$('.value-plus').on('click', function () {
+			var divUpd = $(this).parent().find('.value');
+			var currentVal = parseInt(divUpd.text(), 10);
+			var newVal = currentVal + 1;
+			var maxVal = parseInt($(this).parent().find('input[type="hidden"]').val(), 10);
+	
+			if (newVal <= maxVal) {
+				divUpd.text(newVal);
+				cartQuantity($(this).attr('data-id'), newVal);
+			} else {
+				$('#quantityErrorMessage').text('Out of Stock');
+				$('#quantityErrorModal').modal('show');
+			}
+		});
+	
+		$('.value-minus').on('click', function () {
+			var divUpd = $(this).parent().find('.value');
+			var currentVal = parseInt(divUpd.text(), 10);
+			var newVal = currentVal - 1;
+			var maxVal = parseInt($(this).parent().find('input[type="hidden"]').val(), 10);
+	
+			if (newVal >= 1) {
+				divUpd.text(newVal);
+				cartQuantity($(this).attr('data-id'), newVal);
+			} else {
+				$('#quantityErrorMessage').text('Quantity cannot be less than 1.');
+				$('#quantityErrorModal').modal('show');
+			}
+		});
+	
+		function cartQuantity(productId, quantityUpdate) {
+			$.ajax({
+				url: `/updateQuantity?productId=${productId}&quantityUpdate=${quantityUpdate}`,
+				type: 'POST',
+				success: function (response) {
+					// Reload only the specific section
+					$('.checkout-left').load(location.href + ' .checkout-left>*');
+					console.log('Quantity updated successfully');
+				},
+				error: function (error) {
+					console.error('Error updating quantity:', error);
+					$('#quantityErrorMessage').text('Quantity error: ' + error.responseJSON.message);
+					$('#quantityErrorModal').modal('show');
+				}
+			});
+		}
+	</script>
+	
+	
+	
+	<!--quantity-->
+	<!--close-->
+	<script>
+		$(document).ready(function (c) {
+			$('.close1').on('click', function (c) {
+				$('.rem1').fadeOut('slow', function (c) {
+					$('.rem1').remove();
+				});
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function (c) {
+			$('.close2').on('click', function (c) {
+				$('.rem2').fadeOut('slow', function (c) {
+					$('.rem2').remove();
+				});
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function (c) {
+			$('.close3').on('click', function (c) {
+				$('.rem3').fadeOut('slow', function (c) {
+					$('.rem3').remove();
+				});
+			});
+		});
+	</script>
+
+
+
+	<!--//close-->
+
+	<!-- dropdown nav -->
+	<script>
+		$(document).ready(function () {
+			$(".dropdown").hover(
+				function () {
+					$('.dropdown-menu', this).stop(true, true).slideDown("fast");
+					$(this).toggleClass('open');
+				},
+				function () {
+					$('.dropdown-menu', this).stop(true, true).slideUp("fast");
+					$(this).toggleClass('open');
+				}
+			);
+		});
+	</script>
+	<!-- //dropdown nav -->
+	<script src="js/move-top.js"></script>
+	<script src="js/easing.js"></script>
+	<script>
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 900);
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function () {
+			/*
+									var defaults = {
+										  containerID: 'toTop', // fading element id
+										containerHoverID: 'toTopHover', // fading element hover id
+										scrollSpeed: 1200,
+										easingType: 'linear' 
+									 };
+									*/
+
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
+	</script>
+	<!--// end-smoth-scrolling -->
+
+
+	<script src="js/bootstrap.js"></script>
+	<!-- js file -->
+		<!-- Modal for Quantity Validation -->
+<div class="modal fade" id="quantityErrorModal" tabindex="-1" aria-labelledby="quantityErrorModalLabel"
+aria-hidden="true">
+<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="quantityErrorModalLabel">Quantity Error</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			<p id="quantityErrorMessage"></p>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+		</div>
+	</div>
+</div>
+</div>
+
+</body>
+
+</html>

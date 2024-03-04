@@ -1,0 +1,543 @@
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>Goggles Ecommerce Category Bootstrap responsive Web Template | Single :: w3layouts</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="keywords" content="Goggles a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+	<link href="css/login_overlay.css" rel='stylesheet' type='text/css' />
+	<link href="css/style6.css" rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="css/shop.css" type="text/css" />
+	<link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all">
+	<link rel="stylesheet" href="css/owl.theme.css" type="text/css" media="all">
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui1.css">
+	<link href="css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+	<link href="css/style.css" rel='stylesheet' type='text/css' />
+	<link href="css/fontawesome-all.css" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+	<link
+		href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+		rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+		<style>
+			.btn-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: black;
+  position: relative;
+}
+
+.btn-cart::after {
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  font-size: 15px;
+  color: rgb(0, 0, 0);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  opacity: 0;
+  visibility: hidden;
+  transition: .2s linear;
+  top: 115%;
+}
+
+.icon-cart {
+  width: 24.38px;
+  height: 30.52px;
+  transition: .2s linear;
+}
+
+.icon-cart path {
+  fill: rgb(255, 234, 2);
+  transition: .2s linear;
+}
+
+.btn-cart:hover > .icon-cart {
+  transform: scale(1.2);
+}
+
+.btn-cart:hover > .icon-cart path {
+  fill: rgb(4, 255, 0);
+}
+
+.btn-cart:hover::after {
+  visibility: visible;
+  opacity: 1;
+  top: 105%;
+}
+
+.quantity {
+  display: none;
+}
+
+		</style>
+</head>
+
+<body>
+	<div class="banner-top container-fluid" id="home">
+		<!-- header -->
+		<header class="container-fluid bg-light">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-md-3 top-info text-left mt-lg-4">
+						<!-- Add your top info content here -->
+					</div>
+					<div class="col-md-6 logo-w3layouts text-center">
+						<h1 class="logo-w3layouts">
+							<a class="navbar-brand" href="/">
+								I <i class="ri-eye-fill"></i> WEAR </a>
+						</h1>
+					</div>
+					<div class="col-md-3 top-info-cart text-right mt-lg-4">
+						<!-- Your cart and login buttons here -->
+						<ul class="cart-inner-info">
+							<li>
+								<a href="/login"><i class="ri-account-circle-fill" style="color: black;"></i></a>
+							</li>
+							<li>
+								<a href="/wishlist"><i class="ri-heart-fill" style="color: black;"></i></a>
+							</li>
+							<li>
+								<a href="/cart"><i class="ri-shopping-cart-line" style="color: black;"></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</header>
+	<!--/shop-->
+	<section class="banner-bottom-wthreelayouts py-lg-5 py-3">
+		<div class="container">
+			<div class="inner-sec-shop pt-lg-4 pt-3">
+				
+					<div class="row">
+						<div class="col-lg-4 single-right-left ">
+							<div class="grid images_3_of_2">
+								<div class="flexslider1">
+
+									<ul class="slides">
+										<% for(i=0; i<singleProduct.images.length; i++){ %>
+											<li data-thumb="<%=singleProduct.images[i] %>">
+												<div class="thumb-image">
+													<img src="<%=singleProduct.images[i]%>" data-imagezoom="true"
+														class="img-fluid" alt="">
+												</div>
+											</li>
+											<% } %>
+
+									</ul>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+						</div>
+						<%# for(let j=0;j<singleProduct.length;j++){ %>
+						<div class="col-lg-8 single-right-left simpleCart_shelfItem">
+							<h3>
+								<%=singleProduct.Pname%>
+								<div class="men-thumb-item" data-product-id="<%= singleProduct._id %>">		
+									<% if(data2 && data2.products && data2.products.includes(singleProduct._id)) { %>
+										<span  style="margin-left: 75%;">
+											<a class="wishlist-icon-delete">
+												<i class="ri-heart-fill" style="color: #ff0000;"></i>
+											</a>
+										</span>
+									<% } else { %>
+										<span style="margin-left: 75%;">
+											<a class="wishlist-icon-add">
+												<i class="ri-heart-line" style="color: #000000;"></i>
+											</a>
+										</span>
+									<% } %>
+								</div>
+							</h3>
+							<p><span class="item_price">
+									₹ <%=singleProduct.price%>
+								</span>
+							</p>
+							<div class="rating1">
+								<ul class="stars">
+									<span><button class="btn-success" style="border: transparent;border-radius: 30px;height: 25px;width: 40px;">5.0</button></span>
+									<i class="ri-star-s-fill" style="color: green;"></i>
+									<i class="ri-star-s-fill"style="color: green;"></i>
+									<i class="ri-star-s-fill"style="color: green;"></i>
+									<i class="ri-star-s-fill"style="color: green;"></i>
+									<i class="ri-star-s-fill"style="color: green;"></i>
+									
+								</ul>
+							</div><br><br>
+							<div class="color-quality">
+								<div class="color-quality-right">
+									<% if(singleProduct.units === 0){ %>
+										<p class=" text-danger"><b>Out of Stock</b> </p>
+									<% }else{ %>
+									<h5>Quantity :<%=singleProduct.units%></h5>
+									<% } %>
+								</div>
+							</div>
+							<div>
+								<p>
+									<%=singleProduct.description%>
+								</p>
+							</div>
+
+							<div class="occasion-cart">
+								<div class="googles single-item singlepage">
+									<% if (singleProduct.units > 0) { %>
+										<form action="/postCart?productId=<%= singleProduct._id %>" method="post">
+											<!-- <button type="submit" class="googles-cart pgoogles-cart">
+												<i class="ri-shopping-cart-2-fill"></i> 
+											</button> -->
+											<button type="submit" class="btn-cart">
+												<svg class="icon-cart" viewBox="0 0 24.38 30.52" height="30.52" width="24.38" xmlns="http://www.w3.org/2000/svg">
+												  <title>icon-cart</title>
+												  <path transform="translate(-3.62 -0.85)" d="M28,27.3,26.24,7.51a.75.75,0,0,0-.76-.69h-3.7a6,6,0,0,0-12,0H6.13a.76.76,0,0,0-.76.69L3.62,27.3v.07a4.29,4.29,0,0,0,4.52,4H23.48a4.29,4.29,0,0,0,4.52-4ZM15.81,2.37a4.47,4.47,0,0,1,4.46,4.45H11.35a4.47,4.47,0,0,1,4.46-4.45Zm7.67,27.48H8.13a2.79,2.79,0,0,1-3-2.45L6.83,8.34h3V11a.76.76,0,0,0,1.52,0V8.34h8.92V11a.76.76,0,0,0,1.52,0V8.34h3L26.48,27.4a2.79,2.79,0,0,1-3,2.44Zm0,0"></path>
+												</svg>
+												<span class="quantity"></span>
+											  </button>
+										</form>
+									<% } %>
+
+								</div>
+							</div>
+							
+
+						</div>
+						<div class="clearfix"> </div><br>
+						<!--/tabs-->
+						<div class="responsive_tabs">
+							<div id="horizontalTab">
+								<ul class="resp-tabs-list">
+									<li>Reviews & Ratings         <button class="btn-success" style="border: transparent;border-radius: 30px;height: 25px;width: 35px;">5.0</button> </li>
+								</ul>
+								<div class="resp-tabs-container">
+									<div class="tab2">
+
+										<div class="single_page">
+											<div class="bootstrap-tab-text-grids">
+												<div class="bootstrap-tab-text-grid">				
+													<div>
+														<ul class="stars">
+															<span><button class="btn-success" style="border: transparent;border-radius: 30px;height: 25px;width: 40px;">4.0</button></span>
+															<li>Awesome glass</li>
+															
+														</ul>
+													</div>
+														<p style="margin-left: 80px;">The build quality and the finishing of the glass is mindblowing and ofcourse worth product.</p>
+													</div>
+													<div class="clearfix"> </div>
+												</div>
+												<div class="bootstrap-tab-text-grid">				
+													<div>
+														<ul class="stars">
+															<span><button class="btn-success" style="border: transparent;border-radius: 30px;height: 25px;width: 40px;">4.0</button></span>
+															<li>Worth Product</li>
+															
+														</ul>
+													</div>
+														<p style="margin-left: 80px;">Trustworthy product and nice build quality</p>
+													</div>
+													<div class="clearfix"> </div>
+												</div>
+												
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- </div> -->
+
+						</div>
+						
+					</div>
+			</div>
+			
+	</section>
+	<!--footer -->
+	<footer class="footer footer-fixed">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h4 style="color: #00ffbb;">Quick Links</h4>
+					<ul class="list-unstyled">
+						<li><a style="color: #f4f4f4;" href="#">Home</a></li>
+						<li><a style="color: #f4f4f4;" href="#">About</a></li>
+						<li><a style="color: #f4f4f4;" href="#">Shop</a></li>
+						<li><a style="color: #f4f4f4;" href="#">Contact Us</a></li>
+					</ul>
+				</div>
+				<div class="col-md-6 text-right">
+					<h4>Follow Us</h4>
+					<a style="color: #ff00f7;" href="#"><i class="ri-instagram-line"></i></a>
+					<a style="color: #ffffff;" href="#"><i class="ri-twitter-x-line"></i></a>
+					<a style="color: #00b7ff;" href="#"><i class="ri-facebook-circle-fill"></i></a>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- //footer -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			// Click event handler for add to wishlist icon
+			$('.wishlist-icon-add').click(function (e) {
+				e.preventDefault(); // Prevent default link behavior
+				var productId = $(this).closest('.men-thumb-item').data('product-id');
+
+				// Make AJAX call to add product to wishlist
+				$.ajax({
+					url: '/wishlist/add', 
+					type: 'POST',
+					data: {
+						productId: productId
+					},
+					success: function (response) {
+						console.log('Product added to wishlist');
+						window.location.reload()
+					},
+					error: function (xhr, status, error) {
+						console.error('Error adding product to wishlist:', error);
+					}
+				});
+			});
+
+			
+			$('.wishlist-icon-delete').click(function (e) {
+				e.preventDefault(); 
+				var productId = $(this).closest('.men-thumb-item').data('product-id');
+
+				
+				$.ajax({
+					url: '/wishlist/remove', 
+					type: 'POST',
+					data: {
+						productId: productId 
+					},
+					success: function (response) {
+						console.log('Product removed from wishlist');
+						window.location.reload()
+						
+					},
+					error: function (xhr, status, error) {
+						console.error('Error removing product from wishlist:', error);
+						// Show error message
+					}
+				});
+			});
+		});
+	</script>
+	<!--jQuery-->
+	<script src="js/jquery-2.2.3.min.js"></script>
+	<!-- newsletter modal -->
+	
+	<!--search jQuery-->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<script src="js/classie-search.js"></script>
+	<script src="js/demo1-search.js"></script>
+	<!--//search jQuery-->
+	<!-- cart-js -->
+	<script src="js/minicart.js"></script>
+	<script>
+		googles.render();
+
+		googles.cart.on('googles_checkout', function (evt) {
+			var items, len, i;
+
+			if (this.subtotal() > 0) {
+				items = this.items();
+
+				for (i = 0, len = items.length; i < len; i++) { }
+			}
+		});
+	</script>
+	<!-- //cart-js -->
+	<script>
+		$(document).ready(function () {
+			$(".button-log a").click(function () {
+				$(".overlay-login").fadeToggle(200);
+				$(this).toggleClass('btn-open').toggleClass('btn-close');
+			});
+		});
+		$('.overlay-close1').on('click', function () {
+			$(".overlay-login").fadeToggle(200);
+			$(".button-log a").toggleClass('btn-open').toggleClass('btn-close');
+			open = false;
+		});
+	</script>
+	<!-- carousel -->
+	<!-- price range (top products) -->
+	<script src="js/jquery-ui.js"></script>
+	<script>
+		//<![CDATA[ 
+		$(window).load(function () {
+			$("#slider-range").slider({
+				range: true,
+				min: 0,
+				max: 9000,
+				values: [50, 6000],
+				slide: function (event, ui) {
+					$("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+				}
+			});
+			$("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+
+		}); //]]>
+	</script>
+	<!-- //price range (top products) -->
+
+	<script src="js/owl.carousel.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('.owl-carousel').owlCarousel({
+				loop: true,
+				margin: 10,
+				responsiveClass: true,
+				responsive: {
+					0: {
+						items: 1,
+						nav: true
+					},
+					600: {
+						items: 2,
+						nav: false
+					},
+					900: {
+						items: 3,
+						nav: false
+					},
+					1000: {
+						items: 4,
+						nav: true,
+						loop: false,
+						margin: 20
+					}
+				}
+			})
+		})
+	</script>
+
+	<!-- //end-smooth-scrolling -->
+
+	<!-- single -->
+	<script src="js/imagezoom.js"></script>
+	<!-- single -->
+	<!-- script for responsive tabs -->
+	<script src="js/easy-responsive-tabs.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('#horizontalTab').easyResponsiveTabs({
+				type: 'default', //Types: default, vertical, accordion           
+				width: 'auto', //auto or any width like 600px
+				fit: true, // 100% fit in a container
+				closed: 'accordion', // Start closed if in accordion view
+				activate: function (event) { // Callback function if tab is switched
+					var $tab = $(this);
+					var $info = $('#tabInfo');
+					var $name = $('span', $info);
+					$name.text($tab.text());
+					$info.show();
+				}
+			});
+			$('#verticalTab').easyResponsiveTabs({
+				type: 'vertical',
+				width: 'auto',
+				fit: true
+			});
+		});
+	</script>
+	<!-- FlexSlider -->
+	<script src="js/jquery.flexslider.js"></script>
+	<script>
+		// Can also be used with $(document).ready()
+		$(window).load(function () {
+			$('.flexslider1').flexslider({
+				animation: "slide",
+				controlNav: "thumbnails"
+			});
+		});
+	</script>
+	<!-- //FlexSlider-->
+
+	<!-- dropdown nav -->
+	<script>
+		$(document).ready(function () {
+			$(".dropdown").hover(
+				function () {
+					$('.dropdown-menu', this).stop(true, true).slideDown("fast");
+					$(this).toggleClass('open');
+				},
+				function () {
+					$('.dropdown-menu', this).stop(true, true).slideUp("fast");
+					$(this).toggleClass('open');
+				}
+			);
+		});
+	</script>
+	<!-- //dropdown nav -->
+	<script src="js/move-top.js"></script>
+	<script src="js/easing.js"></script>
+	<script>
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 900);
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function () {
+			/*
+									var defaults = {
+										  containerID: 'toTop', // fading element id
+										containerHoverID: 'toTopHover', // fading element hover id
+										scrollSpeed: 1200,
+										easingType: 'linear' 
+									 };
+									*/
+
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
+	</script>
+	<!--// end-smoth-scrolling -->
+
+
+	<script src="js/bootstrap.js"></script>
+	<!-- js file -->
+</body>
+
+</html>

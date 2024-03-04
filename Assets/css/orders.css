@@ -1,0 +1,136 @@
+
+        .bd {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+
+        .f {
+            max-width: 800px;
+            width: 100%;
+            margin-top: 50px;
+        }
+
+        .hh {
+            color: #00f808;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .order-section {
+            margin-top: 20px;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            border: 1px solid #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-header {
+            background-color: #ffffff;
+            color: #f4f4f4;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 18px;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+
+        .order-status {
+            text-align: right;
+        }
+
+        .thh {
+            color: orangered;
+        }
+
+
+
+    
+    
+
+    
+        <h1 class="mb-4 hh">Orders</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="thh" scope="col">Product Name</th>
+                    <th class="thh" scope="col">Category</th>
+                    <th class="thh" scope="col">Quantity</th>
+                    <th class="thh" scope="col">Order Date</th>
+                    <th class="thh" scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let i=0; i < orders.length; i++) { %>
+                    <tr>
+                        <td>
+                            <%= orders[i].orderItems.Pname %>
+                        </td>
+                        <td>
+                            <%= orders[i].orderItems.Pcategory %>
+                        </td>
+                        <td>
+                            <%= orders[i].orderItems.units %>
+                        </td>
+                        <td>
+                            <%= orders[i].orderDate.toLocaleString('en-IN').split(',')[0] %>
+                        </td>
+                        <form action="/cancelOrder" method="post">
+                            <td>
+                            <input type="text" style="display: none;" name="productId"
+                                value="<%=orders[i].orderItems.productId%>">
+                            <input type="text" style="display: none;" name="orderId" value="<%=orders[i]._id%>">
+                            <% if (orders[i].orderItems.orderStatus=="Cancelled" ) { %>
+                                <h6 class="text-danger">Cancelled</h6>
+                                <% } else if (orders[i].orderItems.orderStatus=="Shipped" ) { %>
+                                    <h6 class="text-warning">Shipped</h6>
+                                    <% } else if(orders[i].orderItems.orderStatus=="Delivered" ) {%>
+                                        <h6 class="text-success">Delivered</h6>
+                                        <a href="" class="btn text-light bg-warning">Return</a>
+                                        <% } else{%>
+                                            <h6 class="p-2">Ordered</h6>
+                                            <button type="submit" class="btn-warning">cancel Order
+
+                                            </button>
+                                            <% } %>
+                            </td>
+                        </form>
+
+
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+        <% if (orders.length===0) { %>
+            <div class="errNoProduct position-absolute">
+                <h1>You didn't order anything!</h1>
+                <h4 class="my-6"><a href="/" class="btn btn-warning">Order
+                        Now</a></h4>
+            </div>
+            <% } %>
+   
+   
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>

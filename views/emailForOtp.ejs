@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="css/login_overlay.css" rel='stylesheet' type='text/css' />
+    <link href="css/style6.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="css/shop.css" type="text/css" />
+    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/owl.theme.css" type="text/css" media="all">
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="css/fontawesome-all.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+    <link
+        href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+    <div>
+        <form action="/verifyEmailOtp" method="post" onsubmit="return emailSubmit();" >
+            <h3 class="clr">Your Email</h3><br>
+
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <p class="text-danger" id="emMess"></p>
+
+
+            <button class="smit" type="submit">Get Otp </button><br><br>
+            <!-- <div class="register-link">
+                <p>Have an existing account? <a class="deco" href="login">Login</a></p>
+            </div> -->
+        </form>
+    </div>
+
+    <script>
+        function emailSubmit() {
+            const input = document.getElementById('email').value
+            const pinput = document.getElementById('emMess')
+
+            if (input.trim() === "") {
+                pinput.innerHTML = "email is required";
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>
+
+</body>
+
+</html>

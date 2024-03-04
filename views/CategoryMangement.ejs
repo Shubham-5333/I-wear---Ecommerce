@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eCommerce Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        #sidebar {
+            background-color: #ffffff;
+            color: #000000;
+            padding-top: 20px;
+        }
+
+        #sidebar a {
+            padding: 10px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #000000;
+            display: block;
+            transition: 0.3s;
+        }
+
+        #sidebar a:hover {
+            color: #3c01fffe;
+        }
+
+        #sidebar .logout {
+            color: #fff;
+            background-color: #ff0000;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        #content {
+            padding: 20px;
+        }
+
+        .dashboard-section {
+            background-color: #fffdfd;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .category-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .category-table th,
+        .category-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .category-table th {
+            background-color: #ffffff;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .btn-edit,
+        .btn-delete {
+            width: 100px;
+        }
+
+        .img-size {
+            width: 100px;
+            height: 80px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 col-sm-12" id="sidebar">
+                <div class="sidebar-sticky text-dark">
+                    <h2 class="text-center">ADMIN</h2>
+                    <a href="/admin/home"><i class="fas fa-home"></i> Dashboard</a>
+                    <a href="/admin/productManagement"><i class="fas fa-box"></i> Product Management</a>
+                    <a href="/admin/getAllCategory"><i class="fas fa-list"></i> Category Management</a>
+                    <a href="/admin/userManagement"><i class="fas fa-users"></i> User Management</a>
+                    <a href="/admin/orderManagement"><i class="fas fa-shopping-cart"></i> Order Management</a>
+                    <a href="/admin/couponManagement"><i class="fas fa-percent"></i> Coupon Management</a>
+                    <form action="/admin/adminLogout" method="post">
+                        <button class="logout btn-danger"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                      </form>
+                </div>
+            </nav>
+
+            <main role="main" class="col-md-10 col-sm-12" id="content">
+                <div class="pt-3 text-center">
+                    <h1>I WEAR</h1>
+                </div>
+                <div class="dashboard-section">
+                    <h2 class="section-title">Category Management</h2>
+                    <div class="category-buttons">
+                        <a href="/admin/addCategory"><button class="btn btn-info btn-category">Add Category</button></a>
+                    </div>
+                    <table class="category-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(let i=0;i<categories.length;i++) { %>
+                                <tr>
+                                    <td>
+                                        <%= categories[i].name %>
+                                    </td>
+                                    <td class="action-buttons">
+                                        <a href="/admin/editCategory/<%= categories[i]._id %>">
+                                            <button class="btn btn-primary btn-edit">Edit</button></a>
+                                        <% if(categories[i].action === false){ %>
+                                        <form action="/admin/adminAction/unlist/<%= categories[i]._id %>" method="post">
+                                            <button type="submit" class="btn btn-sm btn-danger toggle-button">
+                                                <span
+                                                    class="status completed blockblock" <%= categories[i].action %>">
+                                                    Unlist
+                                                </span>
+                                            </button>
+                                        </form>
+                                        <% } else{ %>
+                                        <form action="/admin/adminAction/list/<%= categories[i]._id %>" method="post">
+                                            <button type="submit" class="btn btn-sm btn-success toggle-button">
+                                                <span
+                                                    class="status completed blockUnblock <%= categories[i].action %>">
+                                                    list
+                                                </span>
+                                            </button>
+                                        </form>
+                                        <% } %>
+                                    </td>
+                                </tr>
+                                <% }; %>
+                        </tbody>
+
+
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

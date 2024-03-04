@@ -1,0 +1,786 @@
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Goggles Ecommerce Category Bootstrap responsive Web Template | Payment :: w3layouts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Goggles a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="css/login_overlay.css" rel='stylesheet' type='text/css' />
+    <link href="css/style6.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="css/shop.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/checkout.css">
+    <link href="css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="css/fontawesome-all.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+    <link
+        href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/showAddress.css">
+    <style>
+        .sett {
+            width: 50%;
+            height: 190px;
+
+        }
+
+        .ui-btn {
+            cursor: pointer;
+            border-radius: 5px;
+            color: rgb(0, 0, 0);
+            border-style: solid;
+            background-color: rgb(17, 255, 0);
+            border-color: rgb(17, 255, 0);
+            width: fit-content;
+            height: 40px;
+            transition: 0.2s ease;
+            text-transform: uppercase;
+            border-width: 2px;
+            font-weight: 500;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+
+        .ui-btn:hover {
+            color: rgb(0, 0, 0);
+            background-color: rgb(17, 255, 0);
+            border-color: rgb(17, 255, 0);
+            text-shadow: 0 0 50px rgb(17, 255, 0), 0 0 20px rgb(17, 255, 0), 0 0 15px rgb(17, 255, 0);
+            /* box-shadow: 0 0 50px rgb(17, 255, 0), 0 0 30px rgb(17, 255, 0),
+				0 0 60px rgb(17, 255, 0), 0 0 120px rgb(17, 255, 0); */
+            font-size: 20px;
+            width: fit-content;
+            height: 50px;
+            letter-spacing: 3px;
+        }
+
+        .ui-btn:active {
+            width: fit-content;
+            height: 38px;
+            letter-spacing: 0px;
+        }
+
+        .cppn {
+            background-color: black;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.559);
+            /* Black w/ opacity */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            color: #979595;
+            width: 60%;
+        }
+
+        /* Close button */
+        .close-button {
+            background-color: #ffffff;
+            /* Red */
+            width: fit-content;
+            justify-content: right;
+
+
+            border: none;
+            color: rgb(0, 0, 0);
+            /* padding: ; */
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .close-button:hover {
+            background-color: #c2c2c289;
+            /* Darker red */
+        }
+
+        .kj {
+            padding-left: 20px;
+        }
+        /* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.648);
+}
+
+.modal-content {
+  background-color: #ffffff;
+  margin: 15% auto;
+  color: #0a0a0a;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 35%;
+}
+
+.close {
+  color: #030303;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(249, 0, 0);
+  text-decoration: none;
+  cursor: pointer;
+}
+.plc{
+    border-color: rgba(0, 255, 30, 0.532);
+    background-color: rgb(12, 145, 0);
+    border-radius: 5px;
+    color: white;
+}
+    </style>
+</head>
+
+<body>
+    <div class="banner-top container-fluid" id="home">
+        <!-- header -->
+        <header class="container-fluid bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-3 top-info text-left mt-lg-4">
+                        <!-- Add your top info content here -->
+                    </div>
+                    <div class="col-md-6 logo-w3layouts text-center">
+                        <h1 class="logo-w3layouts">
+                            <a class="navbar-brand" href="/">
+                                I <i class="ri-eye-fill"></i> WEAR </a>
+                        </h1>
+                    </div>
+                    <div class="col-md-3 top-info-cart text-right mt-lg-4">
+                        <!-- Your cart and login buttons here -->
+                        <ul class="cart-inner-info">
+                            <li>
+                                <a href="/login"><i class="ri-account-circle-fill" style="color: black;"></i></a>
+                            </li>
+                            <li>
+                                <a href="/wishlist"><i class="ri-heart-fill" style="color: black;"></i></a>
+                            </li>
+                            <li>
+                                <a href="/cart"><i class="ri-shopping-cart-line" style="color: black;"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    </div>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        Order Details
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <strong>Order Id:</strong> <span id="orderNumber"><%=order._id%></span><br>
+                            <strong>Payment:</strong> <span id="orderNumber"><%=order.paymentMethod%></span><br>
+                            <% if(product.orderStatus === "Pending") {%>
+                                <strong>Status:</strong> <span class="text-danger">Pending</span>
+                                <p style="color: red; font-weight: 800;">Payment Failed !</p>
+                                <button class="plc" id="placeOrderBtn">Place Order</button>
+
+                                <!-- modal -->
+                                
+                                    <!-- Modal content -->
+                                    <div id="paymentModal" class="modal">
+                                        <div class="modal-content">
+                                          <span class="close">&times;</span><br>
+                                          <h2>Select Payment Method</h2><br>
+                                          <form id="paymentForm">
+                                            
+                                            <input type="radio" id="cod" name="paymentMethod" value="cod">
+                                            <label for="cod">Cash on Delivery</label><br><br>
+
+                                            <input type="radio" id="online" name="paymentMethod" value="online">
+                                            <label for="online">Online Payment</label><br><br>
+                                           
+                                            <input type="radio" id="wallet" name="paymentMethod" value="wallet">
+                                            <label for="wallet">Wallet</label><br><br>
+                                            <button class="plc" type="button" onclick="confirmPayment('<%= order._id %>')">Confirm Payment</button>
+                                          </form>
+                                        </div>
+                                      </div>
+                                  
+                                <!-- modal -->
+
+                                <% }else{ %>
+                                    <strong>Status:</strong> <span id="orderNumber"><%=product.orderStatus%></span><br>
+                                <% } %>
+                            
+
+                        </div>
+                        <div class="mb-3">
+                            <strong>Date:</strong> <span id="orderDate"><%=order.orderDate.toLocaleString('en-IN').split(',')[0]%></span>
+                        </div>
+                        <div class="mb-3">
+                            <strong>User Address:</strong> <span id="userAddress"><%= order.address.CAddress%>,
+                                <%=order.address.street%>,
+                                <%=order.address.city%>,
+                                <%=order.address.state%>,
+                                <%=order.address.pin%></span>
+                        </div>
+                        <div class="mb-3">
+                            <strong>Order Item:</strong>
+                            <div id="orderItems">
+                            
+                                <!-- Product Item -->
+                                <div class="media mb-3">
+                                    <img src="<%=product.images[0] %>" class="mr-3" alt="Product Image"
+                                        style="max-width: 100px;">
+                                    <div class="media-body">
+                                        <h5 class="mt-0"><%=product.Pname%></h5>
+                                        <p>Quantity: <%=product.units %></p>
+                                    </div>
+                                </div>
+                                <!-- End Product Item -->
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <strong>Total Amount:</strong> <span id="orderTotal">₹<%=product.price %></span>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <a href="/getOrders" class="btn btn-primary">Back to Orders</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-4"></div>
+    <!--//Payment-->
+    <!--footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 style="color: #00ffbb;">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a style="color: #f4f4f4;" href="#">Home</a></li>
+                        <li><a style="color: #f4f4f4;" href="#">About</a></li>
+                        <li><a style="color: #f4f4f4;" href="#">Shop</a></li>
+                        <li><a style="color: #f4f4f4;" href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 text-right">
+                    <h4>Follow Us</h4>
+                    <a style="color: #ff00f7;" href="#"><i class="ri-instagram-line"></i></a>
+                    <a style="color: #ffffff;" href="#"><i class="ri-twitter-x-line"></i></a>
+                    <a style="color: #00b7ff;" href="#"><i class="ri-facebook-circle-fill"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- //footer -->
+    <!--jQuery-->
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+  // Get the modal
+  var modal = document.getElementById("paymentModal");
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("placeOrderBtn");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+ 
+
+  // When the user clicks the button, open the modal
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+
+
+  // AJAX request on form submission
+//   $("#paymentForm").submit(function(event) {
+//     event.preventDefault();
+//     var paymentMethod = $('input[name="paymentMethod"]:checked').val();
+//     var totalAmount = 100; // Example total amount
+//     // Validate payment method selection
+//     if (!paymentMethod) {
+//       Swal.fire({
+//         icon: 'error',
+//         title: 'Oops...',
+//         text: 'Please select a payment method.'
+//       });
+//       return;
+//     }
+//     // Make AJAX request
+//     $.ajax({
+//       url: '/postingOrder',
+//       method: 'POST',
+//       data: {
+//         paymentMethod: paymentMethod,
+//         totalAmount: totalAmount
+//       },
+//       success: function (res) {
+//         if (res.paymentMethod === "cod" || res.paymentMethod === "wallet") {
+//           if (res.success === true) {
+//             window.location.href = res.url;
+//           }
+//         } else if (res.paymentMethod === 'onlinePayment') {
+//           if (res.success === true) {
+//             // Initialize Razorpay if order creation is successful
+//             const options = {
+//               key: res.key_id,
+//               amount: res.order.amount,
+//               currency: "INR",
+//               name: "I Wear",
+//               description: "Test Transaction",
+//               order_id: res.order.id,
+//               callback_url: "/ordersuccessful",
+//               prefill: {
+//                 name: "Shubham Sunil Patil",
+//                 email: "shubhampatil5333@gmail.com",
+//                 contact: "7558826132"
+//               },
+//               notes: {
+//                 address: "Razorpay Corporate Office"
+//               },
+//               theme: {
+//                 color: "#3399cc"
+//               }
+//             };
+
+//             const rzp1 = new Razorpay(options);
+//             rzp1.open();
+
+//           } else {
+//             // Handle error case
+//             console.error("Order creation failed:", res.error);
+//           }
+//         }
+//       },
+//       error: function (xhr, status, error) {
+//         // Handle error response, e.g., display error message
+//         console.error(error);
+//       }
+    });
+//   });
+// });
+
+  </script>
+<script>
+    function confirmPayment(orderId) {
+      var paymentMethod = $('input[name="paymentMethod"]:checked').val();
+      console.log(paymentMethod);
+  
+      // Validate payment method selection
+      if (!paymentMethod) {
+        $('#errorMessage').text('Please select a payment method.');
+        return;
+      }
+  
+      // Make AJAX request
+      $.ajax({
+        url: '/retryPayment',
+        method: 'POST',
+        data: {
+          paymentMethod: paymentMethod,
+          orderId: orderId
+        },
+        success: function (res) {
+          if (res.paymentMethod === "cod" || res.paymentMethod === "wallet") {
+            if (res.success === true) {
+              window.location.href = res.url;
+            }
+          } else if (res.paymentMethod === 'onlinePayment') {
+            if (res.success === true) {
+              // Initialize Razorpay if order creation is successful
+              const options = {
+                key: res.key_id,
+                amount: res.order.amount,
+                currency: "INR",
+                name: "I Wear",
+                description: "Test Transaction",
+                order_id: res.order.id,
+                callback_url: "/ordersuccefull",
+                prefill: {
+                  name: "Shubham Sunil Patil",
+                  email: "shubhampatil5333@gmail.com",
+                  contact: "7558826132"
+                },
+                notes: {
+                  address: "Razorpay Corporate Office"
+                },
+                theme: {
+                  color: "#3399cc"
+                }
+              };
+  
+              const rzp1 = new Razorpay(options);
+              rzp1.open();
+  
+            } else {
+              // Handle error case
+              console.error("Order creation failed:", res.error);
+            }
+          }
+        },
+        error: function (xhr, status, error) {
+          // Handle error response
+          console.error(error);
+        }
+      });
+    }
+  </script>
+  
+
+
+    <!-- <script>
+		$(document).ready(function () {
+    $('form').submit(function (event) {
+        // Check if the form is for placing an order
+        if ($(this).attr('action') === '/postingOrder') {
+            // Check if the COD checkbox is checked
+            if (!$('input[name="paymentMethod"]').is(':checked')) {
+                event.preventDefault();
+                $('#errorMessage').text('Please select any option.');
+            }
+        }
+    });
+});
+
+	</script> -->
+
+    <!-- <script>
+    $(document).ready(function () {
+        $('form').submit(function (event) {
+            // Check if the COD checkbox is checked
+            if (!$('input[name="paymentMethod"]').is(':checked')) {
+                event.preventDefault();
+                $('#errorMessage').text('Please select any option.');
+            } else if (!$('input[name="selectedAddress"]').is(':checked')) {
+                // Check if any address is selected
+                event.preventDefault();
+                // Display error message for address selection
+                $('#addressErrorMessage').text('Please select an address before placing the order.');
+            }
+        });
+    });
+</script> -->
+
+
+
+
+    <!-- newsletter modal -->
+    <!--search jQuery-->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="js/classie-search.js"></script>
+    <script src="js/demo1-search.js"></script>
+    <!--//search jQuery-->
+    <!-- cart-js -->
+    <script src="js/minicart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
+
+    <script>
+        function applyCoupon() {
+            var couponCode = $('.codeCode').val();
+
+            $.ajax({
+                type: 'GET',
+                url: '/applyCouponCode',
+                data: { code: couponCode },
+                success: function (response) {
+                    console.log(response);
+                    if (response.error && response.error.includes('Coupon expired')) {
+                        $('#errorMessages').text(response.error);
+                    } else if (response.error && response.error.startsWith('Minimum purchase price')) {
+                        $('#errorMessages').text(response.error);
+                    } else if (response.error && response.error.startsWith('invalid coupon')) {
+                        $('#errorMessages').text(response.error);
+                    } else {
+                        if (response.afterCoupon && response.discount) {
+                            $('#total').html(`<li style="color:black">Total<i>-</i><span><h5 style="color:black">₹${response.afterCoupon}</h5></span></li>`);
+                            $('#discountedPrice').text(`-${response.discount}`);
+                            $('#couponValueDisplay').text("Coupon applied !");
+                        }
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error applying coupon:', error);
+                }
+            });
+        }
+    </script>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('#placeOrderBtn').on('click', function () {
+                var paymentMethod = $('input[name="paymentMethod"]:checked').val();
+                var totalAmount = $('input[name="totalAmount"]').val();
+
+
+                // Validate payment method selection
+                if (!paymentMethod) {
+                    $('#errorMessage').text('Please select a payment method.');
+                    return;
+                }
+
+                // Make AJAX request
+                $.ajax({
+                    url: '/postingOrder',
+                    method: 'POST',
+                    data: {
+                        paymentMethod: paymentMethod,
+                        totalAmount: totalAmount
+                    },
+                    success: function (res) {
+                        if (res.paymentMethod === "cod") {
+                            if (res.success === true) {
+                                window.location.href = res.url;
+                            }
+                        } else if (res.paymentMethod === 'wallet') {
+                            if (res.success === true) {
+                                window.location.href = res.url;
+                            }
+                        } else if (res.paymentMethod === "onlinePayment") {
+                            if (res.success === true) {
+                                // Initialize Razorpay if order creation is successful
+                                const options = {
+                                    key: res.key_id,
+                                    amount: res.order.amount,
+                                    currency: "INR",
+                                    name: "I Wear",
+                                    description: "Test Transaction",
+                                    order_id: res.order.id,
+                                    callback_url: "/ordersuccefull",
+                                    prefill: {
+                                        name: "Shubham Sunil Patil",
+                                        email: "shubhampatil5333@gmail.com",
+                                        contact: "7558826132"
+                                    },
+                                    notes: {
+                                        address: "Razorpay Corporate Office"
+                                    },
+                                    theme: {
+                                        color: "#3399cc"
+                                    }
+                                };
+
+                                const rzp1 = new Razorpay(options);
+                                rzp1.open();
+
+                            } else {
+                                // Handle error case
+                                console.error("Order creation failed:", res.error);
+                            }
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        // Handle error response, e.g., display error message
+                        console.error(error);
+                    }
+                });
+            });
+        });
+    </script>
+
+
+
+
+
+    <!-- //cart-js -->
+    <script>
+        $(document).ready(function () {
+            $(".button-log a").click(function () {
+                $(".overlay-login").fadeToggle(200);
+                $(this).toggleClass('btn-open').toggleClass('btn-close');
+            });
+        });
+        $('.overlay-close1').on('click', function () {
+            $(".overlay-login").fadeToggle(200);
+            $(".button-log a").toggleClass('btn-open').toggleClass('btn-close');
+            open = false;
+        });
+    </script>
+    <!-- carousel -->
+    <!-- easy-responsive-tabs -->
+    <script src="js/easy-responsive-tabs.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion           
+                width: 'auto', //auto or any width like 600px
+                fit: true, // 100% fit in a container
+                closed: 'accordion', // Start closed if in accordion view
+                activate: function (event) { // Callback function if tab is switched
+                    var $tab = $(this);
+                    var $info = $('#tabInfo');
+                    var $name = $('span', $info);
+                    $name.text($tab.text());
+                    $info.show();
+                }
+            });
+            $('#verticalTab').easyResponsiveTabs({
+                type: 'vertical',
+                width: 'auto',
+                fit: true
+            });
+        });
+    </script>
+
+    <!-- credit-card -->
+    <script type="text/javascript" src="js/creditly.js"></script>
+    <link rel="stylesheet" href="css/creditly.css" type="text/css" media="all" />
+
+    <script type="text/javascript">
+        $(function () {
+            var creditly = Creditly.initialize(
+                '.creditly-wrapper .expiration-month-and-year',
+                '.creditly-wrapper .credit-card-number',
+                '.creditly-wrapper .security-code',
+                '.creditly-wrapper .card-type');
+
+            $(".creditly-card-form .submit").click(function (e) {
+                e.preventDefault();
+                var output = creditly.validate();
+                if (output) {
+                    // Your validated credit card output
+                    console.log(output);
+                }
+            });
+        });
+    </script>
+    <!-- //credit-card -->
+    <!-- dropdown nav -->
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+    <!-- //dropdown nav -->
+    <script src="js/move-top.js"></script>
+    <script src="js/easing.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 900);
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            /*
+                                    var defaults = {
+                                          containerID: 'toTop', // fading element id
+                                        containerHoverID: 'toTopHover', // fading element hover id
+                                        scrollSpeed: 1200,
+                                        easingType: 'linear' 
+                                     };
+                                    */
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script>
+    <!--// end-smoth-scrolling -->
+
+
+    <!-- //smooth-scrolling-of-move-up -->
+    <script src="js/bootstrap.js"></script>
+    <!-- js file -->
+</body>
+
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eCommerce Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        #sidebar {
+            background-color: #ffffff;
+            color: #000000;
+            padding-top: 20px;
+        }
+
+        #sidebar a {
+            padding: 10px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #000000;
+            display: block;
+            transition: 0.3s;
+        }
+
+        #sidebar a:hover {
+            color: #3c01fffe;
+        }
+
+        #sidebar .logout {
+            color: #fff;
+            background-color: #ff0000;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        #content {
+            padding: 20px;
+        }
+
+        .dashboard-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .user-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .user-table th,
+        .user-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .user-table th {
+            background-color: #f2f2f2;
+        }
+
+        .status-block {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .status-active {
+            background-color: #4caf50;
+        }
+
+        .status-blocked {
+            text-decoration: none;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: space-around;
+
+        }
+       
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 col-sm-12" id="sidebar">
+                <div class="sidebar-sticky text-dark">
+                    <h2 class="text-center">ADMIN</h2>
+                    <a href="/admin/home"><i class="fas fa-home"></i> Dashboard</a>
+                    <a href="/admin/productManagement"><i class="fas fa-box"></i> Product Management</a>
+                    <a href="/admin/getAllCategory"><i class="fas fa-list"></i> Category Management</a>
+                    <a href="/admin/userManagement"><i class="fas fa-users"></i> User Management</a>
+                    <a href="/admin/orderManagement"><i class="fas fa-shopping-cart"></i> Order Management</a>
+                    <a href="/admin/couponManagement"><i class="fas fa-percent"></i> Coupon Management</a>
+                    <form action="/admin/adminLogout" method="post">
+                        <button class="logout btn-danger"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                      </form>
+                </div>
+            </nav>
+
+            <main role="main" class="col-md-10 col-sm-12" id="content">
+                <div class="pt-3 text-center">
+                    <h1>I WEAR</h1>
+                </div>
+                <div class="dashboard-section">
+                    <h2 class="section-title">Manage Users</h2>
+                    <table class="user-table">
+                        <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>Status</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(let i=0; i<user.length; i++) { %>
+                                <tr>
+                                    <td>
+                                        <p>
+                                            <%= i+1 %>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <span
+                                            class="status-block <%= user[i].userLstatus ? 'status-active' : 'status-blocked' %>">
+                                            <a href="#" style="text-decoration: none; color: #000000;">
+                                                <%= user[i].status==='Inactive' ? 'Inactive' : 'Active' %>
+                                            </a>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <p class="bg-white">
+                                            <%= user[i].name %>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="bg-white">
+                                            <%= user[i].email %>
+                                        </a>
+                                    </td>
+                                    <% if(user[i].action===false){ %>
+                                        <td class="action-buttons">
+                                            <form action="/admin/adminUserStatus/block/<%= user[i]._id %>"
+                                                method="post">
+                                                <button type="submit" class="btn btn-sm btn-danger toggle-button">
+                                                    <span
+                                                        class="status completed blockUnblock <%= user[i].action%>">
+                                                        block
+                                                    </span>
+                                                </button>
+                                            </form>
+                                        </td>
+                                        <%}else{%>
+                                            <td class="action-buttons">
+                                                <form action="/admin/adminUserStatus/unblock/<%= user[i]._id %>"
+                                                    method="post">
+                                                    <button type="submit" class="btn btn-sm btn-success toggle-button">
+                                                        <span
+                                                            class="status completed blockUnblock <%= user[i].action %>">
+                                                            unblock
+                                                        </span>
+                                                    </button>
+                                                </form>
+                                            </td>
+
+                                            <%}%>
+                                </tr>
+                                <% } %>
+
+                                    <!-- Add more user rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

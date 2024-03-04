@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>I WEAR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords"
+        content="Goggles a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+        Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <link href="css/bootstrap.js" rel='stylesheet' type='text/css' />
+    <link href="css/login_overlay.css" rel='stylesheet' type='text/css' />
+    <link href="css/style6.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="css/shop.css" type="text/css" />
+    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/owl.theme.css" type="text/css" media="all">
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="css/fontawesome-all.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+    <link
+        href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<style>
+    /* body, h1, h2, h3, p {
+        margin: 0;
+        padding: 0;
+    } */
+
+    /* body {
+        font-family: 'Arial', sans-serif;
+    } */
+    header{
+        background-color: #ebe6e643;
+    }
+
+    .user-info-col {
+        flex: 1;
+        min-width: 250px;
+        max-width: 400px;
+        margin-right: 10px;
+    }
+
+    .user-info-card {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .user-info-card img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .logout-btn {
+        margin-top: 10px;
+    }
+
+    .icon-container-col {
+        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .icon-container {
+        text-align: center;
+        margin-top: 20px;
+        color: #333;
+        text-decoration: none;
+        flex: 0 0 45%;
+        /* Adjust this value to control icon grid width */
+    }
+
+    .icon-container i {
+        margin-bottom: 10px;
+        color: #000000;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 767px) {
+        .icon-container-col {
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .user-info-col {
+            margin-right: 0;
+        }
+
+        .user-info-col,
+        .icon-container-col {
+            flex: 100%;
+            /* Full width on small screens */
+            max-width: 100%;
+            margin-right: 0;
+        }
+    }
+
+    /* Custom CSS for login and cart icons */
+    /* Custom CSS for login and cart icons */
+    .top-info-cart {
+        position: relative;
+    }
+
+    .cart-inner-info {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .cart-inner-info .login-icon,
+    .cart-inner-info .cart-icon {
+        margin-left: 10px;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 1199px) {
+        .top-info-cart {
+            text-align: center;
+        }
+
+        .cart-inner-info {
+            justify-content: center;
+        }
+
+        .cart-inner-info .login-icon,
+        .cart-inner-info .cart-icon {
+            margin-left: 0;
+            margin-right: 10px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .top-info-cart {
+            text-align: right;
+        }
+
+        .cart-inner-info {
+            justify-content: flex-end;
+        }
+
+        .cart-inner-info .login-icon,
+        .cart-inner-info .cart-icon {
+            margin-left: 10px;
+            margin-right: 0;
+        }
+    }
+
+    /* iPad landscape */
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+        .top-info-cart {
+            text-align: right;
+        }
+
+        .cart-inner-info {
+            justify-content: flex-end;
+        }
+
+        .cart-inner-info .login-icon,
+        .cart-inner-info .cart-icon {
+            margin-left: 10px;
+            margin-right: 0;
+        }
+    }
+
+    .footer {
+        margin-top: 10px;
+        position: inherit;
+    }
+
+    .Btn {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 45px;
+        height: 45px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition-duration: .3s;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+        background-color: rgb(255, 65, 65);
+    }
+
+    /* plus sign */
+    .sign {
+        width: 100%;
+        transition-duration: .3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sign svg {
+        width: 17px;
+    }
+
+    .sign svg path {
+        fill: white;
+    }
+
+    /* text */
+    .text {
+        position: absolute;
+        right: 0%;
+        width: 0%;
+        opacity: 0;
+        color: white;
+        font-size: 1.2em;
+        font-weight: 600;
+        transition-duration: .3s;
+    }
+
+    /* hover effect on button width */
+    .Btn:hover {
+        width: 125px;
+        border-radius: 40px;
+        transition-duration: .3s;
+    }
+
+    .Btn:hover .sign {
+        width: 30%;
+        transition-duration: .3s;
+        padding-left: 20px;
+    }
+
+    /* hover effect button's text */
+    .Btn:hover .text {
+        opacity: 1;
+        width: 70%;
+        transition-duration: .3s;
+        padding-right: 10px;
+    }
+
+    /* button click effect*/
+    .Btn:active {
+        transform: translate(2px, 2px);
+    }
+</style>
+
+<body>
+    <!-- header -->
+    <header class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 text-center">
+                <h1 class="logo-w3layouts">
+                    <a class="navbar-brand" href="/">I <i class="ri-eye-fill"></i> WEAR</a>
+                </h1>
+            </div>
+            <div class="col-md-2 p-4">
+                <!-- Your cart and login buttons here -->
+                <ul class="cart-inner-info">
+					<li>
+						<a href="/login"><i class="ri-account-circle-fill" style="color: black;"></i></a>
+					</li>
+					<li>
+						<a href="/wishlist"><i class="ri-heart-fill" style="color: black;"></i></a>
+					</li>
+					<li>
+						<a href="/cart"><i class="ri-shopping-cart-line" style="color: black;"></i></a>
+					</li>
+				</ul>
+            </div>
+        </div>
+    </header>
+    
+
+
+    <!-- //header -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="user-info-col">
+                <!-- User Information -->
+                <div class="user-info-card">
+                    <h5 class="card-title">User Information</h5>
+                    <p style="color: #000000;"><strong>Name:</strong>
+                        <%= userEnter.name %>
+                    </p>
+                    <p style="color: #000000;"><strong>Email:</strong>
+                        <%= userEnter.email %>
+                    </p><br>
+                    <!-- Add more user details as needed -->
+                    <a href="/logout"><button class="Btn">
+                            <div class="sign"><svg viewBox="0 0 512 512">
+                                    <path
+                                        d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
+                                    </path>
+                                </svg></div>
+                            <div class="text">Logout</div>
+                        </button></a>
+                </div>
+            </div>
+            <div class="icon-container-col">
+                <a href="/getOrders" class="icon-container">
+                    <i class="fas fa-shopping-bag fa-3x"></i>
+                    <p>Orders</p>
+                </a>
+                <a href="/updateProfile" class="icon-container">
+                    <i class="fas fa-user fa-3x"></i>
+                    <p>Update Profile</p>
+                </a>
+                <a href="/showAdress" class="icon-container">
+                    <i class="fas fa-map-marker-alt fa-3x"></i>
+                    <p>Addresses</p>
+                </a>
+                <a href="/wallet" class="icon-container">
+                    <i class="fas fa-wallet fa-3x"></i>
+                    <p>Wallet</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <!--footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 style="color: #00ffbb;">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a style="color: #f4f4f4;" href="#">Home</a></li>
+                        <li><a style="color: #f4f4f4;" href="#">About</a></li>
+                        <li><a style="color: #f4f4f4;" href="#">Shop</a></li>
+                        <li><a style="color: #f4f4f4;" href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 text-right">
+                    <h4>Follow Us</h4>
+                    <a style="color: #ff00f7;" href="#"><i class="ri-instagram-line"></i></a>
+                    <a style="color: #ffffff;" href="#"><i class="ri-twitter-x-line"></i></a>
+                    <a style="color: #00b7ff;" href="#"><i class="ri-facebook-circle-fill"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- //footer -->
+
+    <!--jQuery-->
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <!-- newsletter modal -->
+    <!-- Modal -->
+    <!-- Modal -->
+    <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center p-5 mx-auto mw-100">
+                    <h6>Join our newsletter and get</h6>
+                    <h3>50% Off for your first Pair of Eye wear</h3>
+                    <div class="login newsletter">
+                        <form action="#" method="post">
+                            <div class="form-group">
+                                <label class="mb-2">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="" required="">
+                            </div>
+                            <button type="submit" class="btn btn-primary submit mb-4">Get 50% Off</button>
+                        </form>
+                        <p class="text-center">
+                            <a href="#">No thanks I want to pay full Price</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div> -->
+    <script>
+        $(document).ready(function () {
+            $("#myModal").modal();
+        });
+    </script>
+    <!-- // modal -->
+
+    <!--search jQuery-->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="js/classie-search.js"></script>
+    <script src="js/demo1-search.js"></script>
+    <!--//search jQuery-->
+    <!-- cart-js -->
+    <script src="js/minicart.js"></script>
+    <!-- <script>
+        googles.render();
+
+        googles.cart.on('googles_checkout', function (evt) {
+            var items, len, i;
+
+            if (this.subtotal() > 0) {
+                items = this.items();
+
+                for (i = 0, len = items.length; i < len; i++) {}
+            }
+        });
+    </script> -->
+    <!-- //cart-js -->
+    <script>
+        $(document).ready(function () {
+            $(".button-log a").click(function () {
+                $(".overlay-login").fadeToggle(200);
+                $(this).toggleClass('btn-open').toggleClass('btn-close');
+            });
+        });
+        $('.overlay-close1').on('click', function () {
+            $(".overlay-login").fadeToggle(200);
+            $(".button-log a").toggleClass('btn-open').toggleClass('btn-close');
+            open = false;
+        });
+    </script>
+    <!-- carousel -->
+    <!-- Count-down -->
+    <script src="js/simplyCountdown.js"></script>
+    <link href="css/simplyCountdown.css" rel='stylesheet' type='text/css' />
+    <script>
+        var d = new Date();
+        simplyCountdown('simply-countdown-custom', {
+            year: d.getFullYear(),
+            month: d.getMonth() + 2,
+            day: 25
+        });
+    </script>
+    <!--// Count-down -->
+    <script src="js/owl.carousel.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: true
+                    },
+                    600: {
+                        items: 2,
+                        nav: false
+                    },
+                    900: {
+                        items: 3,
+                        nav: false
+                    },
+                    1000: {
+                        items: 4,
+                        nav: true,
+                        loop: false,
+                        margin: 20
+                    }
+                }
+            })
+        })
+    </script>
+
+    <!-- //end-smooth-scrolling -->
+
+
+    <!-- dropdown nav -->
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+    <!-- //dropdown nav -->
+    <script src="js/move-top.js"></script>
+    <script src="js/easing.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 900);
+            });
+        });
+    </script>
+    <!-- <script>
+        $(document).ready(function() {
+            /*
+            						var defaults = {
+            							  containerID: 'toTop', // fading element id
+            							containerHoverID: 'toTopHover', // fading element hover id
+            							scrollSpeed: 1200,
+            							easingType: 'linear' 
+            						 };
+            						*/
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script> -->
+    <!--// end-smoth-scrolling -->
+
+    <script src="js/bootstrap.js"></script>
+    <!-- js file -->
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- <script>
+        function logout() {
+            // Add your logout logic here
+            alert("Logout button clicked. Add your logout logic here.");
+        }
+    </script> -->
+
+</body>
+
+</html>

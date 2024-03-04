@@ -46,7 +46,7 @@ exports.postAddProduct = async (req,res)=>{
         // res.render('addProductPage',{data: productData})
     } catch (error) {
         console.log(error);
-        res.status(400).send({success:false,msg:error.message})
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -136,7 +136,7 @@ exports.updateProduct = async (req, res) => {
         res.redirect('/admin/productManagement');
     } catch (error) {
         console.error(error);
-        res.status(500).send({ error: "Error updating product in the server" });
+        res.status(500).redirect('/err500');
     }
 };
 
@@ -150,7 +150,7 @@ exports.unlistProduct = async (req, res) => {
         res.redirect('/admin/productManagement')
     } catch (error) {
         console.log(error);
-        res.status(500).send({ message:"internal error" })
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -161,7 +161,7 @@ exports.listProduct = async (req, res) => {
         console.log(product);
         res.redirect('/admin/productManagement')
     } catch (error) {
-        res.status(500).send({ message:error||"internal error"})
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -204,6 +204,6 @@ exports.deleteImage =async(req,res)=>{
       res.status(200).json({ success: true, message: 'Image deleted successfully' });
     } catch (error) {
       console.error(error);
-      res.status(500).json({ error: 'Internal server error' });
+      res.status(500).redirect('/err500');
     }
 }

@@ -95,7 +95,7 @@ exports.AddAddress = async (req, res) => {
         res.status(200).redirect('/showAdress');
     } catch (error) {
         console.error(error);
-        res.status(400).send({ success: false, msg: error.message });
+        res.status(400).redirect('/err500')
     }
 };
 
@@ -130,7 +130,7 @@ exports.postEditAddress = async (req, res) => {
         res.redirect('/showAdress');
     } catch (error) {
         console.error(error);
-        res.status(500).send("Internal Server Error");
+        res.status(500).redirect('/err500');
     }
 };
 
@@ -184,7 +184,7 @@ exports.postCheckoutAddAddress = async(req,res)=>{
         res.status(200).redirect('/checkout');
     } catch (error) {
         console.error(error);
-        res.status(400).send({ success: false, msg: error.message });
+        res.status(400).redirect('/err500');
     }
 }
 
@@ -211,6 +211,7 @@ exports.defaultAddress = async (req, res) => {
         res.redirect('/showAdress')
     } catch (error) {
         console.log(error);
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -236,5 +237,6 @@ exports.postSaveChanges = async (req, res) => {
         res.redirect('/checkout')
     } catch (error) {
         console.log(error);
+        res.status(500).redirect('/err500');
     }
 }

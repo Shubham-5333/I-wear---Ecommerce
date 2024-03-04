@@ -45,6 +45,7 @@ app.use((req, res, next) => {
 
 
 
+
 app.use("/css",express.static(path.join(__dirname,"Assets/css")))
 app.use("/images",express.static(path.join(__dirname,"Assets/images")))
 app.use("/js",express.static(path.join(__dirname,"Assets/js")))
@@ -54,6 +55,8 @@ connectDB()
 
 app.use('/',require('./server/router/UserRouter'))
 app.use('/admin',require('./server/router/AdminRouter'))
-
+app.get("*",function(req,res){
+    res.status(404).render("error404")
+  })
 
 app.listen(PORT,()=>console.log(`server running on http://localhost:${PORT}`));    

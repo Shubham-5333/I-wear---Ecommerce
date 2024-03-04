@@ -23,7 +23,7 @@ exports.Adminlogin = async (req, res) => {
             res.redirect('/admin/login');
         }
     } catch (err) {
-        res.status(500).send({ message: err || "Error in server" });
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -34,7 +34,7 @@ exports.UserManagement = async (req, res) => {
         res.render('UserManagement', { user: userData });
     } catch (err) {
         console.log(err);
-        res.status(401).send('Internal server error');
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -45,7 +45,7 @@ exports.blockUser = async (req, res) => {
         console.log(user);
         res.redirect('/admin/userManagement')
     } catch (error) {
-        res.status(500).send({ message: error })
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -56,7 +56,7 @@ exports.unblockUser = async (req, res) => {
         console.log(user);
         res.redirect('/admin/userManagement')
     } catch (error) {
-        res.status(500).send({ message: error })
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -69,6 +69,7 @@ exports.Adminlogout = async (req, res) => {
         res.status(200).redirect("/admin/login");
     } catch (error) {
         console.log(error)
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -207,7 +208,7 @@ exports.downloadSalesReport = async (req, res) => {
         doc.end();
     } catch (error) {
         console.log(error);
-        res.status(500).send("interanal server error")
+        res.status(500).redirect('/err500');
     }
 
 }
@@ -286,7 +287,7 @@ exports.dailyReport = async (req, res) => {
 
     } catch (error) {
         console.error("Error generating daily sales report:", error);
-        res.status(500).json({ error: "Internal server error" });
+        res.status(500).redirect('/err500').json({ error: "Internal server error" });
     }
 }
 
@@ -362,7 +363,7 @@ exports.weeklyReport = async (req, res) => {
         doc.end()
     } catch (error) {
         console.error("Error generating weekly sales report:", error)
-        res.status(500).json({ error: "Internal server error" })
+        res.status(500).redirect('/err500').json({ error: "Internal server error" })
     }
 }
 
@@ -431,7 +432,7 @@ exports.monthlyReport = async (req, res) => {
         doc.end();
     } catch (error) {
         console.error("Error generating monthly sales report:", error);
-        res.status(500).json({ error: "Internal server error" });
+        res.status(500).redirect('/err500').json({ error: "Internal server error" });
     }
 };
 
@@ -499,7 +500,7 @@ exports.yearlyReport = async (req, res) => {
         doc.end();
     } catch (error) {
         console.error("Error generating yearly sales invoice:", error);
-        res.status(500).json({ error: "Internal server error" });
+        res.status(500).redirect('/err500').json({ error: "Internal server error" });
     }
 };
 
@@ -538,10 +539,8 @@ exports.addCoupon = async (req, res) => {
         res.status(200).redirect('/admin/couponManagement');
     } catch (error) {
         console.log(error);
-        res.status(500).send('Internal server Error')
+        res.status(500).redirect('/err500');
     }
-
-
 }
 
 exports.deleteCoupon = async (req, res) => {
@@ -552,7 +551,7 @@ exports.deleteCoupon = async (req, res) => {
         res.status(200).redirect('/admin/couponManagement')
     } catch (error) {
         console.log(error);
-        res.status(500).send("internal server error")
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -695,6 +694,6 @@ exports.getDetailsChart = async (req, res) => {
             salesCount,
         });
     } catch (err) {
-        res.status(500).render('errorPages/500page')
+       res.status(500).redirect('/err500');
     }
 }

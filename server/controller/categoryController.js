@@ -19,7 +19,7 @@ exports.addingCategory = async (req, res) => {
         res.redirect('/admin/getAllCategory');
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Internal Server Error' });
+        res.status(500).redirect('/err500');
     }
 };
 
@@ -30,7 +30,7 @@ exports.getAllCategories = async (req, res) => {
         res.render('CategoryMangement', { categories: categories });
     } catch (error) {
         console.error(error);
-        res.status(500).send({ error: 'Internal Server Error' });
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -48,7 +48,7 @@ exports.editCategory = async (req, res) => {
             res.send(html)
         })
     } catch (error) {
-        res.status(500).send({ error: "error in server" })
+        res.status(500).redirect('/err500');
     }
 }
 exports.postEditCategory = async (req, res) => {
@@ -76,7 +76,7 @@ exports.postEditCategory = async (req, res) => {
             console.log("uppp",updatedProduct);
         res.redirect('/admin/getAllCategory');
     } catch (error) {
-        res.status(500).send({ error: "Error in server" });
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -88,7 +88,7 @@ exports.unlistCategory = async (req, res) => {
         console.log(user);
         res.redirect('/admin/getAllCategory')
     } catch (error) {
-        res.status(500).send({ message: error })
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -99,6 +99,6 @@ exports.listCategory = async (req, res) => {
         console.log(user);
         res.redirect('/admin/getAllCategory')
     } catch (error) {
-        res.status(500).send({ message: error })
+        res.status(500).redirect('/err500');
     }
 }

@@ -29,7 +29,7 @@ exports.postCart = async (req, res) => {
       return res.redirect('/cart'); // Return the redirection here
   } catch (error) {
       console.log(error);
-      res.status(400).send({ message: "Failed to show cart" });
+      res.status(500).redirect('/err500');
   }
 }
 
@@ -40,18 +40,11 @@ exports.deleteCart = async (req, res) => {
         { userId: req.session.email },
         { $pull: { products: { _id: req.query.productId } } }
       );
-    console.log(req.query.productId)
-   
-
-     
-  
-      console.log('hai')
-      console.log(deleted);
   
       res.status(200).redirect('/cart');
     } catch (err) {
       console.error(err);
-      res.status(500).send('Internal Server Error');
+      res.status(500).redirect('/err500');
     }
   };
   
@@ -73,6 +66,6 @@ exports.deleteCart = async (req, res) => {
         res.status(200).send({ message: 'Quantity updated successfully' });
     } catch (error) {
         console.error('Error updating quantity:', error);
-        res.status(500).send({ message: 'Error updating quantity' });
+        res.status(500).redirect('/err500');
     }
 };

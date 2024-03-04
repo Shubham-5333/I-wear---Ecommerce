@@ -124,6 +124,9 @@ route.get('/singleOrder',services.orderDetail)
 
 route.post('/retryPayment',controller.retryPayment)
 
+route.get('/err404',services.err404)
+route.get('/err500',services.err500)
+
 
 
 // route.post('/')?

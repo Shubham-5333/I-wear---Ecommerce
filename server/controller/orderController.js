@@ -35,10 +35,8 @@ exports.adminChangeOrderStatus = async (req, res) => {
     res.status(200).redirect('/admin/orderManagement')
   } catch (error) {
     console.log(error);
-    res.status(500).send({ message: "internal server error" })
-
+    res.status(500).redirect('/err500');
   }
-
 }
 
 
@@ -110,7 +108,7 @@ exports.cancelOrder = async (req, res) => {
     }
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: "Internal server error" });
+    res.status(500).redirect('/err500');
   }
 }
 
@@ -173,7 +171,7 @@ exports.invoice = async (req, res) => {
       doc.end();
   } catch (error) {
       console.error("Error generating invoice:", error);
-      res.status(500).send('Internal server error');
+      res.status(500).redirect('/err500');
   }
 };
 
@@ -225,7 +223,7 @@ exports.returnOrder = async (req, res) => {
       return res.status(200).json({ success: true,url:'/getOrders', message: "Order returned successfully" });
   } catch (error) {
       console.log(error);
-      res.status(500).json({ success: false, error: "Internal server error" });
+      res.status(500).redirect('/err500');
   }
 }
 

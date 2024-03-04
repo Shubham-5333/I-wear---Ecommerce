@@ -82,6 +82,7 @@ const sendOtpMail = async (req, res, getRoute) => {
         await transporter.sendMail(message);
     } catch (err) {
         console.log(err);
+        res.status(500).redirect('/err500');
     }
 };
 const sendOtpMails = async (req, res, getRoute) => {
@@ -142,6 +143,7 @@ const sendOtpMails = async (req, res, getRoute) => {
         await transporter.sendMail(message);
     } catch (err) {
         console.log(err);
+        res.status(500).redirect('/err500');
     }
 };
 
@@ -167,7 +169,7 @@ exports.create = async (req, res) => {
         await sendOtpMail(req, res);
     } catch (error) {
         console.error('Error hashing password:', error);
-        res.status(500).send({ message: 'Error occurred while creating user' });
+        res.status(500).redirect('/err500');
     }
 
 };
@@ -176,9 +178,6 @@ exports.create = async (req, res) => {
 
 
 exports.otpVerify = async (req, res) => {
-    console.log('shubham');
-
-    console.log(req.session.otpId);
 
     const otp = await Otpdb.findOne({ email: req.session.verifyEmail });
     console.log(otp.otp);
@@ -223,7 +222,7 @@ exports.forgotPasword = async (req, res) => {
 
         // res.status(200).redirect('/')
     } catch (error) {
-        res.status()
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -240,7 +239,7 @@ exports.enterOtp = async (req, res) => {
             res.status(401).send('Wrong OTP!')
         }
     } catch (error) {
-        res.status(404).send({ message: "something went wrong" })
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -259,7 +258,7 @@ exports.postReset = async (req, res) => {
         }
 
     } catch (error) {
-        res.status(500).send({ message: error || "something went wrong" })
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -278,7 +277,7 @@ exports.login = async (req, res) => {
             res.render('login', { errorMessage: 'Invalid credentials' });
         }
     } catch (error) {
-        res.status(500).send({ message: "No user found" });
+        res.status(500).redirect('/err500');
     }
 };
 
@@ -291,6 +290,7 @@ exports.logout = async (req, res) => {
         res.status(200).redirect("/");
     } catch (error) {
         console.log(error)
+        res.status(500).redirect('/err500');
     }
 };
 
@@ -306,6 +306,7 @@ exports.userProfileEnter = async (req, res) => {
 
     } catch (error) {
         console.log(error);
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -318,7 +319,6 @@ exports.userProfileEnter = async (req, res) => {
 
 
 exports.findCategory = async (req, res) => {
-    console.log("yesssssssssssssssss", req.query.userId);
     const userId = req.query.userId
     try {
         const data = await categorydb.find({ action: false })
@@ -329,6 +329,7 @@ exports.findCategory = async (req, res) => {
         res.send({ data: data, product: pData, wishlist: wData });
     } catch (error) {
         res.send(error)
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -340,7 +341,7 @@ exports.findCategoryProduct = async (req, res) => {
         console.log(data);
         res.send(data)
     } catch (error) {
-        res.send(error)
+        res.status(500).redirect('/err500');
     }
 }
 exports.wishlistFind = async (req, res) => {
@@ -353,7 +354,7 @@ exports.wishlistFind = async (req, res) => {
         res.send(wData)
 
     } catch (error) {
-        res.send(error)
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -388,7 +389,7 @@ exports.nameUpdate = async (req, res) => {
         res.redirect('/userProfile');
     } catch (error) {
         console.error(error);
-        res.status(500).send({ message: "Error in handling" });
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -556,7 +557,7 @@ exports.postingOrder = async (req, res) => {
 
     } catch (error) {
         console.log(error);
-        return res.status(500).send("Error in Payment");
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -599,7 +600,7 @@ exports.orderSuccessful = async (req, res) => {
         }
     } catch (err) {
         console.error("order razorpay err", err);
-        res.status(500).send("Server Error");
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -630,7 +631,7 @@ exports.addWalletMoney = async (req, res) => {
 
     } catch (error) {
         console.log(error);
-        res.status(500).send("internal server error")
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -661,7 +662,7 @@ exports.addWalletMoneySuccessful = async (req, res) => {
         }
     } catch (err) {
         console.error("add razorpay err", err);
-        res.status(500).send("Internal Server Error");
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -687,7 +688,7 @@ exports.addWishlist = async (req, res) => {
 
     } catch (error) {
         console.log(error);
-        res.status(500).send("Internal Server Error")
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -708,7 +709,7 @@ exports.removeWishlist = async (req, res) => {
         });
     } catch (error) {
         console.log(error);
-        res.status(500).send("Internal Server Error")
+        res.status(500).redirect('/err500');
     }
 }
 exports.deleteFromWishlist = async (req, res) => {
@@ -725,7 +726,7 @@ exports.deleteFromWishlist = async (req, res) => {
         res.status(200).redirect('/wishlist')
     } catch (error) {
         console.log(error);
-        res.status(500).send("Internal Server Error")
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -785,7 +786,7 @@ exports.couponApply = async (req, res) => {
         
     } catch (error) {
         console.log(error);
-        res.status(500).send('Server Error');
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -857,7 +858,7 @@ exports.retryPayment = async(req,res)=>{
                 key_secret: process.env.key_secret
             });
             const amount = orderFind.totalPrice * 100;
-            
+
             const options = {
                 amount,
                 currency: "INR",
@@ -881,7 +882,7 @@ exports.retryPayment = async(req,res)=>{
         
     } catch (error) {
         console.log(error);
-        res.status(500).send('internal server error')
+        res.status(500).redirect('/err500');
     }
 }
 

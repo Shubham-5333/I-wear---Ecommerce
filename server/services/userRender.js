@@ -21,7 +21,7 @@ exports.homePage = (req, res) => {
         .then((response) => {
             res.render('index', { category: response.data.data , product:response.data.product ,data2:response.data.wishlist});
         }).catch((err) => {
-            res.send(err)
+            res.status(500).redirect('/err500');
         })  
 
 }
@@ -46,7 +46,7 @@ exports.allProducts = async(req,res)=>{
         res.render('allProducts',{Product:product,data2:wData,categories:categories})
     } catch (error) {
         console.log((error));
-        res.status(500).send('internal server error')
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -65,7 +65,7 @@ exports.search =async(req,res)=>{
         res.render('allProductsCopy',{finalGetSearch:finalGetSearch,data2:wData})
     } catch (error) {
         console.log(error);
-        res.status(500).send('internal server error')
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -102,6 +102,7 @@ exports.userProfile = async (req, res) => {
             res.render('userProfile', { userEnter: response.data});
         }).catch((err) => {
             console.log(err);
+            res.status(500).redirect('/err500');
         })
 
 }
@@ -125,7 +126,7 @@ exports.categoryList = async (req, res) => {
       
         res.render('category', { Product: productData,data2:WishData });
     } catch (err) {
-        res.send(err);
+        res.status(500).redirect('/err500');
     }
 };
 
@@ -141,7 +142,7 @@ exports.singleProduct = async (req, res) => {
         const wislist = await wishlistdb.findOne({userId:req.session.email})
         res.render('single', { singleProduct: finding ,data2:wislist}); 
     } catch (error) {
-        res.send(err)
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -167,7 +168,7 @@ exports.showAddress = async (req, res) => {
         res.render('showAdress', { data });
     } catch (error) {
         console.error(error);
-        res.status(400).send({ success: false, msg: error.message });
+        res.status(500).redirect('/err500');
     }
 };
 
@@ -200,7 +201,7 @@ exports.editAddress = async (req, res) => {
         res.render('editAddress', { ad: addresses[0].address, addId: req.query.addressId });
     } catch (error) {
         console.error(error);
-        res.status(500).send("Internal Server Error");
+        res.status(500).redirect('/err500');
     }
 
 }
@@ -222,7 +223,7 @@ exports.deleteAddress = async (req, res) => {
         res.redirect('/showAdress');
     } catch (error) {
         console.error(error);
-        res.status(500).send("Internal Server Error");
+        res.status(500).redirect('/err500');
     }
 };
 
@@ -255,7 +256,7 @@ exports.getCart = async (req, res) => {
 
         res.render('cart', { data: cartData });
     } catch (err) {
-        res.status(400).send({ message: err || "Something went wrong" });
+        res.status(500).redirect('/err500');
     }
 };
 
@@ -296,10 +297,8 @@ exports.checkout = async(req, res) => {
 
             res.send(html)
         });
-
-
     } catch (err) {
-        res.status(400).send({ message: "Something went wrong" });
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -320,7 +319,7 @@ exports.updateProfile = async (req, res) => {
         res.render('updateProfile', { user: userFind });
     } catch (error) {
         console.error(error);
-        res.status(500).send({ message: "Error in server" });
+        res.status(500).redirect('/err500');
     }
 };
 
@@ -346,7 +345,7 @@ exports.getOrders = async (req, res) => {
         res.render('userOrders', { orders: orderData });
     } catch (error) {
         console.error(error);
-        res.status(500).send('Internal Server Error');
+        res.status(500).redirect('/err500');
     }
 };
 
@@ -380,7 +379,7 @@ exports.getWallet= async (req,res)=>{
 
    } catch (error) {
     console.log(error);
-    res.status(400).send("something went wrong")
+    res.status(500).redirect('/err500');
    }
 }
 
@@ -409,7 +408,7 @@ exports.getWishlist = async(req,res)=>{
         res.render('wishlist',{ wishData: wishData })
     } catch (err) {
         console.log(err);
-        res.status(500).send("Internal server error")
+        res.status(500).redirect('/err500');
     }
 }
 
@@ -433,6 +432,13 @@ exports.orderDetail=async(req,res)=>{
     //   res.status(200).render('userSingleOrder',{data : OrderData})
   } catch (error) {
     console.log(error);
-    res.status(500).send('Server Error!')
+    res.status(500).redirect('/err500');
   }
+}
+
+exports.err404 =  async(req,res)=>{
+    res.render('error404')
+}
+exports.err500 =  async(req,res)=>{
+    res.render('error500')
 }

@@ -441,15 +441,16 @@ exports.monthlyReport = async (req, res) => {
 // yearly 
 exports.yearlyReport = async (req, res) => {
     try {
-        const startOfYear = new Date(new Date().getFullYear(), 0, 1);
-        const endOfYear = new Date(new Date().getFullYear() + 1, 0, 1);
+        const currentDate = new Date();
+        const startOfYear = new Date(currentDate.getFullYear(), 0, 1);
+        const endOfYear = new Date(currentDate.getFullYear(), 11, 31);
 
         const yearlyOrders = await Orderdb.find({
             $and: [
                 {
                     orderDate: {
                         $gte: startOfYear,
-                        $lt: endOfYear
+                        $lte: endOfYear
                     }
                 },
                 {
@@ -458,51 +459,54 @@ exports.yearlyReport = async (req, res) => {
             ]
         });
 
-        const doc = new PDFDocument();
-
-        res.setHeader('Content-Type', 'application/pdf');
-        res.setHeader('Content-Disposition', 'attachment; filename="yearly_sales_invoice.pdf"');
-
-        doc.pipe(res);
-
-        // Title
-        doc.fontSize(24).text('Yearly Sales Invoice', { align: 'center' }).moveDown();
-
-        // Date of Report
-        doc.fontSize(12).text(`Date of Report: ${new Date().toDateString()}`).moveDown();
-
-        // Invoice Details
-        doc.fontSize(16).text('Invoice Details', { underline: true }).moveDown();
-
+        const tableHeaders = ['Order Date', "User's Name", 'Address', 'Product Name', 'Category', 'Order Status', 'Price'];
         let totalPrice = 0;
+        const tableData = [];
 
         yearlyOrders.forEach(order => {
-            doc.fontSize(12).text(`Order Date: ${order.orderDate.toDateString()}`).moveDown();
-            doc.fontSize(12).text(`User's Name: ${order.address.name}`).moveDown();
-            doc.fontSize(12).text(`Address: ${order.address.CAddress}, ${order.address.street}, ${order.address.city}, ${order.address.pin}`).moveDown();
-
-            doc.fontSize(12).text('Product Details:', { underline: true }).moveDown();
             order.orderItems.forEach(item => {
-                doc.fontSize(12).text(`Product Name: ${item.Pname || 'N/A'}`);
-                doc.fontSize(12).text(`Category: ${item.Pcategory || 'N/A'}`);
-                doc.fontSize(12).text(`Order Status: ${item.orderStatus || 'N/A'}`);
-                doc.fontSize(12).text(`Price: ${item.price || 'N/A'}`);
-                doc.moveDown();
-                totalPrice += Number(item.price) || 0; // Update total price
+                tableData.push([
+                    order.orderDate.toDateString(),
+                    order.address.name,
+                    `${order.address.CAddress}, ${order.address.street}, ${order.address.city}, ${order.address.pin}`,
+                    item.Pname || 'N/A',
+                    item.Pcategory || 'N/A',
+                    item.orderStatus || 'N/A',
+                    order.totalPrice !== undefined ? order.totalPrice : 'N/A',
+                ]);
+                totalPrice += Number(order.totalPrice) || 0; // Update total price
             });
-
-            doc.moveDown();
         });
 
-        // Total Price
-        doc.fontSize(16).text(`Total Price: ${totalPrice}`).moveDown();
+        tableData.push(['Total Price', '', '', '', '', '', totalPrice]);
 
+        const table = {
+            title: 'Yearly Sales Report',
+            headers: tableHeaders,
+            rows: tableData
+        };
+
+        let doc = new PDFDocument('I WEAR', { margin: 30, size: 'A4' });
+
+        await doc.table(table);
+
+        const pdfChunks = [];
+        doc.on('data', chunk => {
+            pdfChunks.push(chunk);
+        });
+        doc.on('end', () => {
+            const pdfBuffer = Buffer.concat(pdfChunks);
+            res.setHeader('Content-Type', 'application/pdf');
+            res.setHeader('Content-Disposition', 'attachment; filename="yearly_sales_report.pdf"');
+            res.send(pdfBuffer);
+        });
         doc.end();
     } catch (error) {
-        console.error("Error generating yearly sales invoice:", error);
+        console.error("Error generating yearly sales report:", error);
         res.status(500).redirect('/err500').json({ error: "Internal server error" });
     }
 };
+
 
 
 

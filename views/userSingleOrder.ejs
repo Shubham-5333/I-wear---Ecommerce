@@ -294,19 +294,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             
                                 <!-- Product Item -->
                                 <div class="media mb-3">
+                                
                                     <img src="<%=product.images[0] %>" class="mr-3" alt="Product Image"
                                         style="max-width: 100px;">
                                     <div class="media-body">
                                         <h5 class="mt-0"><%=product.Pname%></h5>
                                         <p>Quantity: <%=product.units %></p>
+                                        <p>Price: <%=product.price %></p>
                                     </div>
                                 </div>
                                 <!-- End Product Item -->
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <strong>Total Amount:</strong> <span id="orderTotal">₹<%=product.price %></span>
-                        </div>
+                        <!-- <div class="mb-3">
+                            <strong>Total Amount:</strong> <span id="orderTotal">₹<%#=order.totalPrice%></span>
+                        </div> -->
                     </div>
                     <div class="card-footer text-muted">
                         <a href="/getOrders" class="btn btn-primary">Back to Orders</a>

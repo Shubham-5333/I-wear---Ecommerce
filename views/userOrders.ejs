@@ -162,7 +162,7 @@
             <div class="table-container">
                 <h1 class="mb-4 hh">Ordered Products</h1>
                 <div class="table-responsive">
-                    <table id="example" class="table table-striped" style="width:100%">
+                    <table class="table table-striped" style="width:100%">
                         <thead>
                             <tr>
                                 <th class="thh" scope="col">Product Name</th>
@@ -239,13 +239,21 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-            <% if (orders.length===0) { %>
+                <% if (orders.length===0) { %>
                 <div class="errNoProduct position-absolute">
                     <h1 style="color: #dbf800;">You didn't order anything!</h1>
                     <h4 class="my-6"><a href="/" class="btn btn-warning">Order Now</a></h4>
                 </div>
                 <% } %>
+            </div>
+            <div class="pagination-area mt-15 mb-50">
+                    <nav aria-label="Page navigation example">
+                        <ul id="pagination" class="pagination justify-content-center">
+                            <!-- Pagination buttons will be generated here dynamically -->
+                        </ul>
+                    </nav>
+                </div>
+           
         </div>
         <br><br>
     </div>
@@ -286,67 +294,47 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/2.0.1/js/dataTables.js"></script>
-    <script src="https://cdn.datatables.net/2.0.1/js/dataTables.bootstrap5.js"></script>
-    <script>
-        new DataTable('#example');
-    </script>
-
-
-    
-// <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-
-// <script src="https://cdn.jsdelivr.net/npm/easyinvoice@latest/dist/easyinvoice.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    // <script>
-    //     function downloadInvoice(id) {
-    //         const Orderid = id;
-    //         $.ajax({
-    //             url: `/invoice?id=${Orderid}`,
-    //             type: 'GET',
-    //             success: function (response) {
-    //                 showInvoice(response);
-    //             },
-    //             error: function (xhr, status, error) {
-    //                 console.error('Request failed:', status, error +'error coming from here');
-    //             },
-    //         });
-    //     }
+        <script>
+        $(document).ready(function () {
+            var itemsPerPage = 4; // Number of items per page
+            var currentPage = 1; // Current page
+            var totalItems = '<%= orders.length %>'; // Total number of items
+            var totalPages = Math.ceil(totalItems / itemsPerPage); // Total number of pages
+    
+            // Function to display items for the current page
+            function showPage(page) {
+                $('tbody tr').hide(); // Hide all table rows
+                var startIndex = (page - 1) * itemsPerPage; // Calculate starting index
+                var endIndex = Math.min(startIndex + itemsPerPage, totalItems); // Calculate ending index
+                $('tbody tr').slice(startIndex, endIndex).show(); // Show items for the current page
+            }
+    
+            // Function to generate pagination buttons
+            function generatePaginationButtons() {
+                var paginationHtml = '';
+                for (var i = 1; i <= totalPages; i++) {
+                    paginationHtml += '<li class="page-item' + (i === currentPage ? ' active' : '') + '"><a class="page-link" href="#" onclick="changePage(' + i + ')">' + i + '</a></li>';
+                }
+                $('#pagination').html(paginationHtml); // Update pagination buttons
+            }
+    
+            // Function to handle page change
+            window.changePage = function (page) {
+                currentPage = page; // Update current page
+                showPage(currentPage); // Show items for the new page
+                generatePaginationButtons(); // Regenerate pagination buttons
+            };
+    
+            showPage(currentPage); // Show items for the initial page
+            generatePaginationButtons(); // Generate pagination buttons
+        });
+    </script>
 
-    //     function showInvoice(item) {
-    //         const currentDate = new Date();
-    //         const formattedDate = `${currentDate.getDate()}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
-    //         var data = {
-    //             "sender": {
-    //                 "company": "I Wear",
-    //                 "address": "34b,Zcabs",
-    //                 "zip": "673602",
-    //                 "city": "calicut",
-    //                 "country": "India"
-    //             },
-    //             "client": {
-    //                 "address": `${item.client.address.name},${item.client.address.CAddress},${item.client.address.street}, ${item.client.address.city}, ${item.client.address.state} - ${item.client.address.pin}`
-    //             },
-    //             "information": {
-    //                 "number": Math.floor(Math.random() * 900000000 + 100000000),
-    //                 "date": formattedDate,
-    //             },
-    //             "products": item.products,
-    //             "bottom-notice": `The total price after discount ${item.client.totalPrice}`,
-    //             "settings": {
-    //                 "currency": "INR",
-    //             }
-    //         };
-    //         easyinvoice.createInvoice(data, function (result) {
-    //                 easyinvoice.download('invoice.pdf',result.pdf)
-    //             });
-    //     }
-    // </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
 
     <script>
         $(document).ready(function () {

@@ -488,6 +488,18 @@ exports.postingOrder = async (req, res) => {
             await newOrder.save();
             req.session.newOrder = newOrder;
             delete req.session.totalPrice;
+            const order = await Orderdb.findOneAndUpdate({
+                $match: { _id: newOrder._id },
+            },
+                {
+                  $set: {
+                    "orderItems.$.orderStatus": "ordered"
+                  }
+                }
+              )
+
+
+            console.log("dfsfsfsfsdfssf",order);
 
             await cartdb.updateOne(
                 { userId: req.session.email },
@@ -507,6 +519,15 @@ exports.postingOrder = async (req, res) => {
                 await newOrder.save();
                 req.session.newOrder = newOrder;
                 delete req.session.totalPrice;
+                const order = await Orderdb.findOneAndUpdate(
+                    { _id: newOrder._id },
+                    { $set: { "orderItems.$[].orderStatus": "ordered" } }, // Update all order items
+                    { new: true } // Return the updated document
+                );
+        
+                console.log("Updated order:", order);
+    
+
                 await cartdb.updateOne(
                     { userId: req.session.email },
                     { $set: { products: [] } }

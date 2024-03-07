@@ -1,4 +1,3 @@
-
 function validateForm() {
     const name = document.getElementById('name').value.trim();
     const address = document.getElementById('address').value.trim();
@@ -13,48 +12,50 @@ function validateForm() {
     const cityError = document.getElementById('cityError');
     const stateError = document.getElementById('stateError');
     const zipError = document.getElementById('zipError');
-    
+
+    let isValid = true; // Assume form is valid initially
+
     if (!name) {
         nameError.innerHTML = "Name is required";
-        return false;
+        isValid = false; // Set isValid to false if name is empty
     } else {
         nameError.innerHTML = "";
     }
     
     if (!address) {
         addressError.innerHTML = "Address is required";
-        return false;
+        isValid = false; // Set isValid to false if address is empty
     } else {
         addressError.innerHTML = "";
     }
     
     if (!street) {
         streetError.innerHTML = "Street is required";
-        return false;
+        isValid = false; // Set isValid to false if street is empty
     } else {
         streetError.innerHTML = "";
     }
     
     if (!city) {
         cityError.innerHTML = "City is required";
-        return false;
+        isValid = false; // Set isValid to false if city is empty
     } else {
         cityError.innerHTML = "";
     }
     
     if (!state) {
         stateError.innerHTML = "State is required";
-        return false;
+        isValid = false; // Set isValid to false if state is empty
     } else {
         stateError.innerHTML = "";
     }
     
     if (!zip) {
         zipError.innerHTML = "PIN Code is required";
-        return false;
+        isValid = false; // Set isValid to false if zip is empty
     } else {
         zipError.innerHTML = "";
     }
     
-    return true;
+    return isValid; // Return isValid which indicates if the form is valid or not
 }

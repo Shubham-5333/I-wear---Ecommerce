@@ -80,19 +80,25 @@ exports.cancelOrder = async (req, res) => {
           }
         }
       )
+
       const units = order.orderItems.find(value => {
         if (String(value.productId) === productId) {
           return value.units;
         }
       })
 
+      let cancelPrice = units.price * units.units
+      if (units.priceAfterCoupon > 0) {
+        cancelPrice = units.priceAfterCoupon
+      }
+
       await walletdb.updateOne({ userId: req.session.email }, {
         $inc: {
-          balance: Math.round(units.units * units.price)
+          balance: cancelPrice
         },
         $push: {
           transactions: {
-            amount: Math.round(units.units * units.price)
+            amount: cancelPrice
           }
         }
       }, { upsert: true });

@@ -157,14 +157,22 @@
                                         <td>
                                             <form action="/admin/adminChangeOrderStatus?orderId=<%= orders[i]._id %>&productId=<%=orders[i].orderItems.productId%>" method="post">
 
-                                                <input type="text" name="filter" value="<%#= filter?filter:'' %>" hidden>
+                                                <!-- <input type="text" name="filter" value="<%#= filter?filter:'' %>" hidden> -->
                                                 <% if (orders[i].orderItems.orderStatus == "Cancelled") { %>
                                                     <h6 class="text-danger">Cancelled</h6>
                                                 <% } else if (orders[i].orderItems.orderStatus == "Shipped") { %>
                                                     <h6 class="text-warning">Shipped</h6>
                                                 <% } else if (orders[i].orderItems.orderStatus == "Delivered") { %>
                                                     <h6 class="text-success">Delivered</h6>
-                                                <% }else if (orders[i].orderItems.orderStatus == "Returned") { %>
+                                                <% }else if (orders[i].orderItems.orderStatus == "Return requested") { %>
+                                                    <h6 class="text-info">Return requested</h6>
+                                                    <select class="form-control" name="returnOrderStatus" id="orderStatus1">
+                                                        <option value="Return requested" <%=(orders[i].orderItems.orderStatus==="Return requested"
+                                                        )?"selected":"" %>>return Order</option>
+                                                    </select>
+                                                    <button type="submit">Accept Return</button>
+                                                <% } else if (orders[i].orderItems.orderStatus == "Returned") { %>
+                                                   
                                                     <h6 class="text-warning">Returned</h6>
                                                 <% } else { %>
                                                         <select class="form-control" name="orderStatus"

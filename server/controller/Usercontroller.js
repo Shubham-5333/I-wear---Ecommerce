@@ -457,7 +457,7 @@ exports.postingOrder = async (req, res) => {
             };
             if (req.session.appliedCouponCode) {
                 const totalUnitPrice = order.price * order.units
-                const afterDiscountPrice = Math.round(totalUnitPrice - ((totalUnitPrice * req.session.couponDiscount) / 100))
+                const afterDiscountPrice = Math.round(totalUnitPrice - ((totalUnitPrice * req.session.couponDiscount) / 100))+1;
                 order.priceAfterCoupon = afterDiscountPrice
                 order.couponCode = req.session.appliedCouponCode
               }

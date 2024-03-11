@@ -198,7 +198,9 @@
                                                 <h6 class="text-info">Shipped</h6>
                                                 <% } else if (orders[i].orderItems.orderStatus=="Delivered" ) { %>
                                                     <h6 class="text-success">Delivered</h6>
-                                                    <% } else if (orders[i].orderItems.orderStatus=="Returned" ) { %>
+                                                    <% } else if (orders[i].orderItems.orderStatus=="Return requested" ) { %>
+                                                        <h6 class="text-info">Return requested</h6>
+                                                        <% } else if (orders[i].orderItems.orderStatus=="Returned" ) { %>
                                                         <h6 class="text-warning">Returned</h6>
                                                         <% }else if (orders[i].orderItems.orderStatus=="Pending" ) { %>
                                                             <h6 class="text-warning">Pending</h6>
@@ -221,7 +223,7 @@
                                             <button type="button" class="btn btn-warning mt-2 btn-sm return-btn"
                                                 data-order-id="<%= orders[i]._id %>"
                                                 data-product-id="<%= orders[i].orderItems.productId %>">Return</button>
-                                            <% } else if (orders[i].orderItems.orderStatus !="Cancelled" &&
+                                            <% } else if (orders[i].orderItems.orderStatus !="Cancelled" && orders[i].orderItems.orderStatus !="Return requested" &&
                                                 orders[i].orderItems.orderStatus !="Returned" && orders[i].orderItems.orderStatus !="Shipped" ) { %>
                                                 <button type="button" class="btn btn-sm cancel-btn"
                                                     style="background-color: rgb(178, 0, 0);color: white;"

@@ -124,7 +124,6 @@ exports.orderManagement = async (req, res) => {
             { $sort: { orderDate: -1 } }
         ]);
 
-        console.log(orderData);
         res.render('orderManagement', { orders: orderData });
     } catch (error) {
         console.error(error);

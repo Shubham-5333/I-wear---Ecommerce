@@ -36,19 +36,46 @@ exports.login = (req, res) => {
 }
 
 
-exports.allProducts = async(req,res)=>{ 
-    
+exports.allProducts = async (req, res) => {
     const userId = req.session.email;
+    const categories = await categorydb.find();
+    const wData = await wishlistdb.findOne({ userId: userId });
+    const category = req.query.category;
+    const price = req.query.price;
+
     try {
-        const categories = await categorydb.find()
-        const product = await productdb.find()
-        const wData = await wishlistdb.findOne({ userId: userId })
-        res.render('allProducts',{Product:product,data2:wData,categories:categories})
+        let products;
+
+        if (category === "All" && price === "Low to High") {
+            products = await productdb.find().sort({ price: 1 });
+        } else if(category === "All" && price === "High to Low"){
+            products = await productdb.find().sort({ price: -1 });
+        }else if(category === "designer glasses" && price === "Low to High"){
+            products = await productdb.find({Pcategory:category}).sort({ price: 1 });
+        }else if(category === "designer glasses" && price === "High to Low"){
+            products = await productdb.find({Pcategory:category}).sort({ price: -1 });
+        }else if(category === "prescription glasses" && price === "Low to High"){
+            products = await productdb.find({Pcategory:category}).sort({ price: 1 });
+        }else if(category === "prescription glasses" && price === "High to Low"){
+            products = await productdb.find({Pcategory:category}).sort({ price: -1 });
+        }else if(category === "sun glasses" && price === "Low to High"){
+            products = await productdb.find({Pcategory:category}).sort({ price: 1 });
+        }else if(category === "sun glasses" && price === "High to Low"){
+            products = await productdb.find({Pcategory:category}).sort({ price: -1 });
+        } else {
+            // Apply other conditions as needed
+            // For example, you can filter products based on category and price
+            // products = await productdb.find({ Pcategory: category, price: { $gte: minPrice, $lte: maxPrice } });
+            products = await productdb.find();
+        }
+
+        res.render('allProducts', { Product: products, data2: wData, categories: categories });
     } catch (error) {
-        console.log((error));
+        console.log(error);
         res.status(500).redirect('/err500');
     }
-}
+};
+
 
 exports.search =async(req,res)=>{
     const searchData = req.query.searchQuery;
@@ -68,6 +95,9 @@ exports.search =async(req,res)=>{
         res.status(500).redirect('/err500');
     }
 }
+
+
+
 
 exports.register = (req, res) => {
     res.render('register');

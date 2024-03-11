@@ -48,6 +48,7 @@ route.get('/search',services.search);
 
 
 route.get('/allProducts',services.allProducts)
+// route.post('/PostAllProducts',services.filter)
 
 route.get('/resetPass',services.resetPass)
 route.post('/postResetPass',controller.postReset)

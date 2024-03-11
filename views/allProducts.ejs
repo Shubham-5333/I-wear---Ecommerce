@@ -48,10 +48,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			border-radius: 5px;
 			border-color: #ff8c00;
 		}
-		.bl{
+
+		.bl {
 			border-color: transparent;
 			border-radius: 5px;
-			background-color:#ff0000;
+			background-color: #ff0000;
 			color: white;
 		}
 	</style>
@@ -98,43 +99,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="row">
 					<!-- product left -->
 					<div class="side-bar col-lg-3">
-						<!-- <form action="#" method="post"> -->
-						<!-- price range -->
-						<div class="range">
-							<h3 class="agileits-sear-head">Category</h3>
-							<ul class="dropdown-menu6">
-								<div>
-									<select class="sl">
-										<option>All</option>
-										<% for(let i=0; i<categories.length; i++) { %>
-
-											<option>
-												<%= categories[i].name %>
-											</option>
+						<form action="/allProducts" method="get" id="filterForm"> <!-- Uncommented form and added id -->
+							<div class="range">
+								<h3 class="agileits-sear-head">Category</h3>
+								<ul class="dropdown-menu6">
+									<div>
+										<select class="sl" name="category"> <!-- Added name attribute -->
+											<option value="All">All</option>
+											<% for(let i=0; i<categories.length; i++) { %>
+												<option value="<%= categories[i].name %>"><%= categories[i].name %></option>
 											<% } %>
-									</select>
-								</div>
-
-							</ul>
-						</div>
-						<div class="range">
-							<h3 class="agileits-sear-head">Price range</h3>
-							<ul class="dropdown-menu6">
-								<div>
-									<select class="sl">
-										<option value="option1">Low to High</option>
-										<option value="option2">High to Low</option>
-									</select>
-
-								</div>
-							</ul>
-						</div>
-						<div class="range">
-							<button type="submit" class="bl ml-5">Apply Filter</button>
-						</div>
-						<!-- //price range -->
-					<!-- </form> -->
+										</select>
+									</div>
+								</ul>
+							</div>
+							<div class="range">
+								<h3 class="agileits-sear-head">Price range</h3>
+								<ul class="dropdown-menu6">
+									<div>
+										<select class="sl" name="price"> <!-- Added name attribute -->
+											<option value="Low to High">Low to High</option>
+											<option value="High to Low">High to Low</option>
+										</select>
+									</div>
+								</ul>
+							</div>
+							<div class="range">
+								<button type="submit" class="bl ml-5">Apply Filter</button>
+							</div>
+						</form>
 					</div>
+					
 					<!-- //product left -->
 					<!--/product right-->
 					<div class="left-ads-display col-lg-9">
@@ -311,14 +306,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</script>
 
 
-	<!-- /wishlist -->
-	<!-- newsletter modal -->
-	<!--search jQuery-->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<script src="js/classie-search.js"></script>
 	<script src="js/demo1-search.js"></script>
-	<!--//search jQuery-->
-	<!-- cart-js -->
+	
+
 	<script src="js/minicart.js"></script>
 	<script>
 		googles.render();

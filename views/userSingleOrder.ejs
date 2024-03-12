@@ -289,27 +289,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <%=order.address.pin%></span>
                         </div>
                         <div class="mb-3">
-                            <strong>Order Item:</strong>
+                            <strong>Order Items:</strong>
                             <div id="orderItems">
                             
                                 <!-- Product Item -->
                                 
                                 <div class="media mb-3">
-                                
-                                    <img src="<%=product.images[0] %>" class="mr-3" alt="Product Image"
+                                <% for(let i=0;i<order.orderItems.length;i++){%>
+                                    <img src="<%=order.orderItems[i].images[0] %>" class="mr-3" alt="Product Image"
                                         style="max-width: 100px;">
                                     <div class="media-body">
-                                        <h5 class="mt-0"><%=product.Pname%></h5>
-                                        <p>Quantity: <%=product.units %></p>
-                                        <p>Price: <%=product.price %></p>
+                                        <h5 class="mt-0"><%=order.orderItems[i].Pname%></h5>
+                                        <p>Quantity: <%=order.orderItems[i].units %></p>
+                                        <p>Price: <%=order.orderItems[i].price %></p>
                                     </div>
+                                    <% } %>
                                 </div>
                                 <!-- End Product Item -->
                             </div>
                         </div>
-                        <!-- <div class="mb-3">
-                            <strong>Total Amount:</strong> <span id="orderTotal">₹<%#=order.totalPrice%></span>
-                        </div> -->
+                        <div class="mb-3">
+                            <strong>Final Total Amount:</strong> <span id="orderTotal">₹<%=order.totalPrice%></span>
+                        </div>
                     </div>
                     <div class="card-footer text-muted">
                         <a href="/getOrders" class="btn btn-primary">Back to Orders</a>

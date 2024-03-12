@@ -451,7 +451,7 @@ exports.orderDetail=async(req,res)=>{
   try {
     const orderDetails = await Orderdb.findOne({
         _id: orderId,
-        "orderItems.productId": productId
+        // "orderItems.productId": productId
       });
       if (orderDetails) {
         const orderItem = orderDetails.orderItems.find(item => item.productId.equals(productId));

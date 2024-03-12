@@ -168,9 +168,9 @@
                                                     <h6 class="text-info">Return requested</h6>
                                                     <select class="form-control" name="returnOrderStatus" id="orderStatus1">
                                                         <option value="Return requested" <%=(orders[i].orderItems.orderStatus==="Return requested"
-                                                        )?"selected":"" %>>return Order</option>
+                                                        )?"selected":"" %>>Accept Return</option>
                                                     </select>
-                                                    <button type="submit">Accept Return</button>
+                                                    <button class="btn btn-primary" type="submit">Submit</button>
                                                 <% } else if (orders[i].orderItems.orderStatus == "Returned") { %>
                                                    
                                                     <h6 class="text-warning">Returned</h6>

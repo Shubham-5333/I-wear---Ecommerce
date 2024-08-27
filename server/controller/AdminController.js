@@ -368,6 +368,9 @@ exports.weeklyReport = async (req, res) => {
 }
 
 // monthly 
+// const PDFDocument = require('pdfkit');
+// const Orderdb = require('path-to-order-model'); // Adjust the path to your Orderdb model
+
 exports.monthlyReport = async (req, res) => {
     try {
         const currentDate = new Date();
@@ -375,17 +378,10 @@ exports.monthlyReport = async (req, res) => {
         const endDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
 
         const monthlyOrders = await Orderdb.find({
-            $and:[
-                {
-                    orderDate: {
-                        $gte: startDate,
-                        $lte: endDate
-                    }
-                },
-                {
-                    "orderItems.orderStatus": 'Delivered'
-                }
-            ]   
+            $and: [
+                { orderDate: { $gte: startDate, $lte: endDate } },
+                { "orderItems.orderStatus": 'Delivered' }
+            ]
         });
 
         const tableHeaders = ['Order Date', "User's Name", 'Address', 'Product Name', 'Category', 'Order Status', 'Price'];
@@ -409,15 +405,21 @@ exports.monthlyReport = async (req, res) => {
 
         tableData.push(['Total Price', '', '', '', '', '', totalPrice]);
 
-        const table = {
-            title: 'Monthly Sales Report',
+        const doc = new PDFDocument({ margin: 30, size: 'A4' });
+
+        doc.fontSize(18).text('Monthly Sales Report', { align: 'center' });
+        doc.moveDown();
+
+        // Drawing the table
+        const tableOptions = {
             headers: tableHeaders,
-            rows: tableData
+            rows: tableData,
+            prepareHeader: () => doc.font('Helvetica-Bold').fontSize(10),
+            prepareRow: () => doc.font('Helvetica').fontSize(10)
         };
 
-        let doc = new PDFDocument('I WEAR', { margin: 30, size: 'A4' });
-
-        await doc.table(table);
+        // If using pdfkit-table library
+        await doc.table(tableOptions);
 
         const pdfChunks = [];
         doc.on('data', chunk => {
@@ -429,12 +431,15 @@ exports.monthlyReport = async (req, res) => {
             res.setHeader('Content-Disposition', 'attachment; filename="monthly_sales_report.pdf"');
             res.send(pdfBuffer);
         });
+
+        // Finalize the PDF
         doc.end();
     } catch (error) {
         console.error("Error generating monthly sales report:", error);
         res.status(500).redirect('/err500').json({ error: "Internal server error" });
     }
 };
+
 
 
 
